@@ -46,7 +46,7 @@ public class LoginFunderServlet extends HttpServlet {
             }
             else{
                 request.setAttribute("errMsgs",userValidate);
-                request.getRequestDispatcher("/loginAdmin.jsp").forward(request,response);
+                request.getRequestDispatcher("/loginUser.jsp").forward(request,response);
             }
         
         }

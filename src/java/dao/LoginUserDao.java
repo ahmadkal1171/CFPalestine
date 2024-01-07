@@ -30,7 +30,7 @@ public class LoginUserDao {
         try{
             conn=DBConnection.createConnection();
             statement=conn.createStatement();
-            resultSet=statement.executeQuery("SELECT USERFUNDER,PASSFUNDER FROM Funder");
+            resultSet=statement.executeQuery("SELECT USERFUNDER,PASSFUNDER FROM FUNDERS");
             while(resultSet.next()){
                 userNameDB=resultSet.getString("userFunder");
                 passwordDB=resultSet.getString("passFunder");

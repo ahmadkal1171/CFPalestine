@@ -11,15 +11,15 @@ package bean;
  */
 public class RegisterBean {
     String username;
-    String numPhone;
-    String email;
     String password;
+    String email;
+    String numPhone;
 
-    public RegisterBean(String username, String numPhone, String email, String password) {
+    public RegisterBean(String username, String password, String email, String numPhone) {
         this.username = username;
-        this.numPhone = numPhone;
-        this.email = email;
         this.password = password;
+        this.email = email;
+        this.numPhone = numPhone;
     }
 
     public String getUsername() {
@@ -30,12 +30,12 @@ public class RegisterBean {
         this.username = username;
     }
 
-    public String getNumPhone() {
-        return numPhone;
+    public String getPassword() {
+        return password;
     }
 
-    public void setNumPhone(String numPhone) {
-        this.numPhone = numPhone;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -46,13 +46,14 @@ public class RegisterBean {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getNumPhone() {
+        return numPhone;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setNumPhone(String numPhone) {
+        this.numPhone = numPhone;
     }
+
     
     
 

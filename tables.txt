@@ -1,0 +1,7 @@
+create table funders(
+idFunder int primary key generated always as identity,
+userFunder varchar(50),
+passFunder varchar(50),
+emailFunder varchar(50),
+numPhone varchar (20)
+);

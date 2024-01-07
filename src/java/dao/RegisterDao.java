@@ -35,7 +35,7 @@ public class RegisterDao {
                 return "PHONE NUMBER ALREADY EXISTS";
             }
 
-            sql = "insert into FUNDER(userFunder,numPhone,emailFunder,passFunder)"
+            sql = "insert into FUNDERS(userFunder,numPhone,emailFunder,passFunder)"
                     + " values('" + username + "','" + phoneNum + "','" + email + "','" + password + "')";
 
             statement.executeUpdate(sql);
@@ -60,13 +60,13 @@ public class RegisterDao {
             con = DBConnection.createConnection();
             statement = con.createStatement();
 
-            sql = "select NUMPHONE from FUNDER";
+            sql = "select NUMPHONE from FUNDERS";
 
             resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
 
-                phonenumDB = resultSet.getString("NumPhone");
+                phonenumDB = resultSet.getString("numPhone");
 
                 if (phonenum.equals(phonenumDB)) {
                     return true;
