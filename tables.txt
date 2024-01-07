@@ -5,3 +5,9 @@ passFunder varchar(50),
 emailFunder varchar(50),
 numPhone varchar (20)
 );
+
+create table admin(
+idAdmin int primary key generated always as identity,
+userAdmin varchar(50),
+passAdmin varchar(50)
+);
