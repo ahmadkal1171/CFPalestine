@@ -1,6 +1,6 @@
 <%-- 
-    Document   : loginUser
-    Created on : Jan 6, 2024, 12:41:55 AM
+    Document   : Register
+    Created on : Jan 7, 2024, 3:53:56 PM
     Author     : Haikal
 --%>
 
@@ -12,8 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <h1>Login Admin</h1>
-        <form action="LoginFunderServlet" method="POST">
+        <h1>Register new Account</h1>
+        <form action="RegisterServlet" method="POST">
             <table border="0" cellspacing="1" cellpadding="1">
                 <thead>
                     <tr>
@@ -27,6 +27,14 @@
                         <td><input type="text" name="username" /></td>
                     </tr>
                     <tr>
+                        <td>Email</td>
+                        <td><input type="text" name="email" /></td>
+                    </tr>
+                    <tr>
+                        <td>Phone number </td>
+                        <td><input type="text" name="numphone" /></td>
+                    </tr>
+                    <tr>
                         <td>Password</td>
                         <td><input type="password" name="password" /></td>
                     </tr>
@@ -36,9 +44,7 @@
                     </tr>
                 </tbody>
             </table>
-
         </form>
-        <a href="loginAdmin.jsp">Admin Login</a>
-        <a href="register.jsp">Register new account </a>
+        
     </body>
 </html>
