@@ -18,8 +18,8 @@ import util.DBConnection;
  */
 public class LoginUserDao {
     public String authenticateUser(LoginUser loginUser){
-        String username=loginAdmin.getUsername();
-        String password=loginAdmin.getPassword();
+        String username=loginUser.getFundername();
+        String password=loginUser.getFunderpass();
         
         Connection conn=null;
         Statement statement=null;
