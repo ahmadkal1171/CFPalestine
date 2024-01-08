@@ -17,7 +17,7 @@ import util.DBConnection;
  * @author Haikal
  */
 public class LoginUserDao {
-    public String authenticateUser(LoginAdmin loginAdmin){
+    public String authenticateUser(LoginUser loginUser){
         String username=loginAdmin.getUsername();
         String password=loginAdmin.getPassword();
         
