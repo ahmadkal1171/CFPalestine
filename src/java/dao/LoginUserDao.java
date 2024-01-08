@@ -5,7 +5,7 @@
  */
 package dao;
 
-import bean.LoginAdmin;
+import bean.LoginUser;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
