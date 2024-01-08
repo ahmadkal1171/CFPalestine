@@ -24,25 +24,25 @@
                         </a>
                     </li>
                     <li>
-                        <a href="dashboardUser.html">
+                        <a href="dashboardUser.jsp">
                             <i class="fas fa-home"></i>
                             <span class="nav-item" >Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="dashboardUser.html">
+                        <a href="dashboardUser.jsp">
                             <i class="fas fa-database"></i>
                             <span class="nav-item">About Us</span>
                         </a>
                     </li>
                     <li>
-                        <a href="profile-user.html">
+                        <a href="profileUser.jsp">
                             <i class="fas fa-user"></i>
                             <span class="nav-item">Profile</span>
                         </a>
                     </li>
                     <li>
-                        <a href="listFund.html">
+                        <a href="listFund.jsp">
                             <i class="fas fa-list"></i>
                             <span class="nav-item">List Fund</span>
                         </a>
@@ -79,7 +79,7 @@
                                     <td class="col-2"><center>10</center></td>
                                     <td class="col-2"><center>10/10/2023</center></td>
                                     <td class="col-2">
-                                        <center><a href="detailsPage.html">Palestin: Help People in Gaza</a></center>
+                                        <center><a href="detailsPage.jsp">Palestin: Help People in Gaza</a></center>
                                     </td>
                                 </tr>
                                 <tr class="active">

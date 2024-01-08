@@ -24,25 +24,25 @@
                         </a>
                     </li>
                     <li>
-                        <a href="dashboardUser.html">
+                        <a href="dashboardUser.jsp">
                             <i class="fas fa-home"></i>
                             <span class="nav-item" >Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="dashboardUser.html">
+                        <a href="dashboardUser.jsp">
                             <i class="fas fa-database"></i>
                             <span class="nav-item">About Us</span>
                         </a>
                     </li>
                     <li>
-                        <a href="profile-user.html">
+                        <a href="profile-user.jsp">
                             <i class="fas fa-user"></i>
                             <span class="nav-item">Profile</span>
                         </a>
                     </li>
                     <li>
-                        <a href="listFund.html">
+                        <a href="listFund.jsp">
                             <i class="fas fa-list"></i>
                             <span class="nav-item">List Fund</span>
                         </a>
