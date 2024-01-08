@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-import bean.LoginAdmin;
+import bean.LoginUser;
 import dao.LoginUserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,12 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Haikal
- */
 public class LoginFunderServlet extends HttpServlet {
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,25 +20,6 @@ public class LoginFunderServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            String username=request.getParameter("username");
-            String password=request.getParameter("password");
-            
-            LoginAdmin lb=new LoginAdmin(username,password);
-            LoginUserDao ld = new LoginUserDao();
-            String userValidate=ld.authenticateUser(lb);
-            
-            if(userValidate.equals("SUCCESS")){
-                request.setAttribute("username",username);
-                request.getRequestDispatcher("/homeAdmin.jsp").forward(request,response);
-            }
-            else{
-                request.setAttribute("errMsgs",userValidate);
-                request.getRequestDispatcher("/loginUser.jsp").forward(request,response);
-            }
-        
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -72,23 +42,36 @@ public class LoginFunderServlet extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
+     * @param loginBean
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        try (PrintWriter out = response.getWriter()) {
+            String fundername = request.getParameter("fundername");
+            String funderpass = request.getParameter("funderpass");
+  
+        LoginUser data = new LoginUser(fundername, funderpass);
+        LoginUserDao loginDao = new LoginUserDao();
+        
+        String userValidate = loginDao.authenticateUser(data);
+        
+        if (userValidate.equals("SUCCESS")) {
+                // If authentication is successful, forward to the Home.jsp page
+                request.setAttribute("fundername", fundername);
+                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
+            } else {
+                // If authentication fails, display an error message and forward to the Login.jsp page
+                request.setAttribute("errMessage", userValidate);
+                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
+            }
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+        return "Login Servlet";
+    }
 }
