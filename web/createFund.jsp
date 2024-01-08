@@ -86,7 +86,7 @@
                                     <div class="center">
                                         Make a contribution<br><br>
                                         <button title="Contribute">
-                                            <a href="payment.html">
+                                            <a href="payment.jsp">
                                                 <i class="fa fa-external-link"></i>
                                                 Click Here
                                             </a>
