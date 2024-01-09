@@ -70,40 +70,29 @@ password="app"/>
                 </ul>
             </nav>
 
+            <sql:query var="result" dataSource="${myDataSource}">
+                SELECT funderId, Date, Title 
+                FROM APP.DONATE
+            </sql:query>
+            
             <section class="main">
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>LIST FUND</h1></center>
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th><center>Fund ID</center></th>
-                                    <th><center>Date</center></th>            
-                                    <th><center>Title</center></th>
-                                </tr>
+                                <c:forEach var="columnName" items="${result.columnNames}">
+                                    <th><c:out value="${columnName}"/></th>
+                                </c:forEach>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="col-2"><center>10</center></td>
-                                    <td class="col-2"><center>10/10/2023</center></td>
-                                    <td class="col-2">
-                                        <center><a href="detailsPage.jsp">Palestin: Help People in Gaza</a></center>
-                                    </td>
-                                </tr>
-                                <tr class="active">
-                                    <td class="col-2"><center>198</center></td>
-                                    <td class="col-2"><center>02/08/2023</center></td>
-                                    <td class="col-2">
-                                        <center><a href="#">Tabung Kecemasan: Merdeka Al Aqsa</a></center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-2"><center>35</center></td>
-                                    <td class="col-2"><center>12/01/2023</center></td>
-                                    <td class="col-2">
-                                        <center><a href="#">Donate — Justice for people and planet</a></center>
-                                    </td>
-                                </tr>
+                                <c:forEach var="row" items="${result.rowsByIndex}">
+                                    <tr>
+                                        <c:forEach var="column" items="${row}">
+                                            <th><c:out value="${column}"/></th>
+                                        </c:forEach>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>
