@@ -19,7 +19,6 @@ public class RegisterDao {
     public String registerVisitor(RegisterBean registerBean) {
 
         String username = registerBean.getUsername();
-        String phoneNum = registerBean.getNumPhone();
         String email = registerBean.getEmail();
         String password = registerBean.getPassword();
 
@@ -31,12 +30,12 @@ public class RegisterDao {
             con = DBConnection.createConnection();
             statement = con.createStatement();
 
-            if (isExists(phoneNum)) {
+            if (isExists(email)) {
                 return "PHONE NUMBER ALREADY EXISTS";
             }
 
-            sql = "insert into FUNDERS(userFunder,numPhone,emailFunder,passFunder)"
-                    + " values('" + username + "','" + phoneNum + "','" + email + "','" + password + "')";
+            sql = "insert into FUNDER(funderName,funderEmail,funderPass)"
+                    + " values('" + username + "','" + email + "','" + password + "')";
 
             statement.executeUpdate(sql);
 
@@ -53,22 +52,22 @@ public class RegisterDao {
         Statement statement = null;
         ResultSet resultSet = null;
         String sql = "";
-        String phonenumDB = "";
+        String emailDB = "";
         
         
         try {
             con = DBConnection.createConnection();
             statement = con.createStatement();
 
-            sql = "select NUMPHONE from FUNDERS";
+            sql = "select FUNDEREMAIL from FUNDER";
 
             resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
 
-                phonenumDB = resultSet.getString("numPhone");
+                emailDB = resultSet.getString("email");
 
-                if (phonenum.equals(phonenumDB)) {
+                if (phonenum.equals(emailDB)) {
                     return true;
                 }
             }

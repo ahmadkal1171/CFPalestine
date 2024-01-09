@@ -13,13 +13,13 @@ public class RegisterBean {
     String username;
     String password;
     String email;
-    String numPhone;
+    
 
-    public RegisterBean(String username, String password, String email, String numPhone) {
+    public RegisterBean(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.numPhone = numPhone;
+        
     }
 
     public String getUsername() {
@@ -46,13 +46,6 @@ public class RegisterBean {
         this.email = email;
     }
 
-    public String getNumPhone() {
-        return numPhone;
-    }
-
-    public void setNumPhone(String numPhone) {
-        this.numPhone = numPhone;
-    }
 
     
     

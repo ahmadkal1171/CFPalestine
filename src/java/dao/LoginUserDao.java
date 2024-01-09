@@ -30,10 +30,10 @@ public class LoginUserDao {
         try{
             conn=DBConnection.createConnection();
             statement=conn.createStatement();
-            resultSet=statement.executeQuery("SELECT USERFUNDER,PASSFUNDER FROM FUNDERS");
+            resultSet=statement.executeQuery("SELECT FUNDERNAME,FUNDERPASS FROM FUNDER");
             while(resultSet.next()){
-                userNameDB=resultSet.getString("userFunder");
-                passwordDB=resultSet.getString("passFunder");
+                userNameDB=resultSet.getString("funderName");
+                passwordDB=resultSet.getString("funderPass");
                 
                 if(username.equals(userNameDB)&&password.equals(passwordDB)){
                     return "SUCCESS";

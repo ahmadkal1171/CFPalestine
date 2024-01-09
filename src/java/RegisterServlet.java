@@ -34,11 +34,10 @@ public class RegisterServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String username = request.getParameter("username");
-            String phoneNum = request.getParameter("numphone");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
 
-            RegisterBean rb = new RegisterBean(username,password,email,phoneNum);
+            RegisterBean rb = new RegisterBean(username,password,email);
 
             RegisterDao rd = new RegisterDao();
 

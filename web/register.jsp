@@ -30,10 +30,10 @@
                         <td>Email</td>
                         <td><input type="text" name="email" /></td>
                     </tr>
-                    <tr>
+<!--                    <tr>
                         <td>Phone number </td>
                         <td><input type="text" name="numphone" /></td>
-                    </tr>
+                    </tr>-->
                     <tr>
                         <td>Password</td>
                         <td><input type="text" name="password" /></td>

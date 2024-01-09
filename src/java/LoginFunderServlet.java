@@ -19,7 +19,25 @@ public class LoginFunderServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String fundername = request.getParameter("username");
+            String funderpass = request.getParameter("password");
+  
+        LoginUser data = new LoginUser(fundername, funderpass);
+        LoginUserDao loginDao = new LoginUserDao();
+        
+        String userValidate = loginDao.authenticateUser(data);
+        
+        if (userValidate.equals("SUCCESS")) {
+                // If authentication is successful, forward to the Home.jsp page
+                request.setAttribute("fundername", fundername);
+                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
+            } else {
+                // If authentication fails, display an error message and forward to the Login.jsp page
+                request.setAttribute("errMessage", userValidate);
+                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -49,25 +67,7 @@ public class LoginFunderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        try (PrintWriter out = response.getWriter()) {
-            String fundername = request.getParameter("fundername");
-            String funderpass = request.getParameter("funderpass");
-  
-        LoginUser data = new LoginUser(fundername, funderpass);
-        LoginUserDao loginDao = new LoginUserDao();
         
-        String userValidate = loginDao.authenticateUser(data);
-        
-        if (userValidate.equals("SUCCESS")) {
-                // If authentication is successful, forward to the Home.jsp page
-                request.setAttribute("fundername", fundername);
-                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
-            } else {
-                // If authentication fails, display an error message and forward to the Login.jsp page
-                request.setAttribute("errMessage", userValidate);
-                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
-            }
-        }
     }
 
     @Override

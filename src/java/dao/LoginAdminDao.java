@@ -30,10 +30,10 @@ public class LoginAdminDao {
         try{
             conn=DBConnection.createConnection();
             statement=conn.createStatement();
-            resultSet=statement.executeQuery("SELECT USERADMIN,PASSADMIN FROM ADMIN");
+            resultSet=statement.executeQuery("SELECT founderName,founderPass FROM founder");
             while(resultSet.next()){
-                userNameDB=resultSet.getString("userAdmin");
-                passwordDB=resultSet.getString("passAdmin");
+                userNameDB=resultSet.getString("founderName");
+                passwordDB=resultSet.getString("founderPass");
                 
                 if(username.equals(userNameDB)&&password.equals(passwordDB)){
                     return "SUCCESS";

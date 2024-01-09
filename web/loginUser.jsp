@@ -28,7 +28,7 @@
         </style>
     </head>
     <body>
-        <form action="LoginUserServlet" method="POST">
+        <form action="LoginFunderServlet" method="POST">
             <table border="0" cellspacing="6" align="center" cellpadding="3">
                 <tbody>
                     <tr>
