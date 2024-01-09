@@ -20,7 +20,7 @@
                     <ul>
                         <li>
                             <a href="#" class="logo">
-                                <img src="images/Logo.png" style="height: 40%;">
+                                <img src="images/logo.png" style="height: 40%;">
                                 <span class="nav-item">Donators</span>
                             </a>
                         </li>

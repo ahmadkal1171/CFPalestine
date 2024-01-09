@@ -64,4 +64,8 @@ public class ListFund implements java.io.Serializable{
 //
 //        public void setTitle(String string);
 //    }
+    
+    public interface listFundDAO {
+
+    }
 }
