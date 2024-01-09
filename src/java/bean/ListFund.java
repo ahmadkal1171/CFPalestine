@@ -5,33 +5,40 @@ package bean;
  * @author HP
  */
 
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.List;
+
 public class ListFund implements java.io.Serializable{
-    String funderId;
-    String dateHistory;
-    String title;
+    private int funderId;
+    private LocalDate dateHistory;
+    private String title;
 
     public ListFund() {
+        funderId = 0;
+        dateHistory = null;
+        title = null;
     }
 
-    public ListFund(String funderId, String dateHistory, String title) {
+    public ListFund(int funderId, LocalDate dateHistory, String title) {
         this.funderId = funderId;
         this.dateHistory = dateHistory;
         this.title = title;
     }
 
-    public String getFunderId() {
+    public int getFunderId() {
         return funderId;
     }
 
-    public void setFunderId(String funderId) {
+    public void setFunderId(int funderId) {
         this.funderId = funderId;
     }
 
-    public String getDateHistory() {
+    public LocalDate getDateHistory() {
         return dateHistory;
     }
 
-    public void setDateHistory(String dateHistory) {
+    public void setDateHistory(LocalDate dateHistory) {
         this.dateHistory = dateHistory;
     }
 
@@ -48,4 +55,13 @@ public class ListFund implements java.io.Serializable{
         return "ListFund{" + "funderId=" + funderId + ", dateHistory=" + dateHistory + ", title=" + title + '}';
     }
 
+//    public interface listFund {
+//        List<listFund> getListFund() throws SQLException;
+//
+//        public void setDateHistory(LocalDate toLocalDate);
+//
+//        public void setFunderId(int aInt);
+//
+//        public void setTitle(String string);
+//    }
 }
