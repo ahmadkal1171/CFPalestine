@@ -5,6 +5,14 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<sql:setDataSource var="myDatasource"
+driver="org.apache.derby.jdbc.ClientDriver"
+url="jdbc:derby://localhost:1527/CFDatabase" user="app"
+password="app"/>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +27,7 @@
                 <ul>
                     <li>
                         <a href="#" class="logo">
-                            <img src="images/Logo.png" style="height: 40%;">
+                            <img src="images/logo.png" style="height: 40%;">
                             <span class="nav-item">Donators</span>
                         </a>
                     </li>
@@ -69,14 +77,13 @@
                         <button target="_blank" style="text-align: right;" type = "button" class = "btn btn-warning" title = "Edit Profile"> EDIT
                           <i class = "fas fa-edit"></i>
                         </button>
-                        <table class="table">
+<!--                        <table class="table">
                             <thead>
                                 <tr>
                                     <th><center>Name</center></th>
                                     <th><center>ID Number</center></th>
                                     <th><center>Email Address</center></th>
-                                    <th><center>Telephone Number</center></th>            
-                                    <th><center>Address</center></th> 
+                                    <th><center>Telephone Number</center></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -85,9 +92,28 @@
                                     <td class="col-2"><center>+6011-23456789</center></td>
                                     <td class="col-2"><center>siti18@gmail.com</center></td>
                                     <td class="col-2"><center>A092</center></td>
-                                    <td class="col-2"><center>45, Jalan Kemuning, Taman Jaya, 40000 Shah Alam, Selangor</center></td>
                                 </tr>
                             </tbody>
+                        </table>-->
+                        <sql:query var="result" dataSource="${myDatasource}">
+                            SELECT * FROM APP.FUNDER
+                        </sql:query>
+
+                        <table border="1">
+                            <!-- column headers -->
+                            <tr>
+                                <c:forEach var="columnName" items="${result.columnNames}">
+                                    <th><c:out value="${columnName}"/></th>
+                                    </c:forEach>
+                            </tr>
+                            <!-- column data -->
+                            <c:forEach var="row" items="${result.rowsByIndex}">
+                                <tr>
+                                    <c:forEach var="column" items="${row}">
+                                        <td><c:out value="${column}"/></td>
+                                    </c:forEach>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                 </section>
