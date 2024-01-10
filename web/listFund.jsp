@@ -70,15 +70,16 @@ password="app"/>
                 </ul>
             </nav>
 
-            <sql:query var="result" dataSource="${myDataSource}">
-                SELECT funderId, Date, Title 
-                FROM APP.DONATE
-            </sql:query>
-            
             <section class="main">
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>LIST FUND</h1></center>
+                        
+                        <sql:query var="result" dataSource="${myDataSource}">
+                            SELECT ID, Date, Title 
+                            FROM APP.DONATE
+                        </sql:query>
+                            
                         <table class="table">
                             <thead>
                                 <c:forEach var="columnName" items="${result.columnNames}">

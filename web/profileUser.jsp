@@ -74,9 +74,9 @@ password="app"/>
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
-                        <button target="_blank" style="text-align: right;" type = "button" class = "btn btn-warning" title = "Edit Profile"> EDIT
+<!--                        <button target="_blank" style="text-align: right;" type = "button" class = "btn btn-warning" title = "Edit Profile"> EDIT
                           <i class = "fas fa-edit"></i>
-                        </button>
+                        </button>-->
 <!--                        <table class="table">
                             <thead>
                                 <tr>
@@ -99,7 +99,7 @@ password="app"/>
                             SELECT * FROM APP.FUNDER
                         </sql:query>
 
-                        <table border="1">
+                        <table border="1" class="table">
                             <!-- column headers -->
                             <tr>
                                 <c:forEach var="columnName" items="${result.columnNames}">
