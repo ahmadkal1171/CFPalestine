@@ -17,6 +17,7 @@ import util.DBConnection;
  * @author Haikal
  */
 public class LoginAdminDao {
+    private int userId;
     public String authenticateUser(LoginAdmin loginAdmin){
         String username=loginAdmin.getUsername();
         String password=loginAdmin.getPassword();
@@ -26,16 +27,20 @@ public class LoginAdminDao {
         ResultSet resultSet=null;
         String userNameDB="";
         String passwordDB="";
+        int userIdDB = 0;
         
         try{
             conn=DBConnection.createConnection();
             statement=conn.createStatement();
-            resultSet=statement.executeQuery("SELECT founderName,founderPass FROM founder");
+            resultSet=statement.executeQuery("SELECT founderId,founderName,founderPass FROM founder");
             while(resultSet.next()){
                 userNameDB=resultSet.getString("founderName");
                 passwordDB=resultSet.getString("founderPass");
                 
+                
                 if(username.equals(userNameDB)&&password.equals(passwordDB)){
+                    userIdDB=resultSet.getInt("founderId");
+                    setUserId(userIdDB);
                     return "SUCCESS";
                 }
             }  
@@ -44,4 +49,15 @@ public class LoginAdminDao {
         }
         return "Invalid user credentials";
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    
+    
 }

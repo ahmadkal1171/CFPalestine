@@ -4,11 +4,12 @@ funderName varchar(50),
 funderPass varchar(50),
 funderEmail varchar(50));
 
-create table founder(
-founderId int primary key generated always as identity,
-founderName varchar(50),
-founderPass varchar(50),
-FOREIGN KEY (projectId) REFERENCES project(projectId)
+CREATE TABLE founder (
+    founderId INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    founderName VARCHAR(50),
+    founderPass VARCHAR(50),
+    projectId INT,
+    FOREIGN KEY (projectId) REFERENCES project(projectId)
 );
 
 create table project(

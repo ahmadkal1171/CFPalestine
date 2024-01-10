@@ -16,7 +16,7 @@
     </head>
     <body>
         <h1>Home page</h1>
-        Welcome ${username}<br>
+        Welcome ${userID}<br>
         <a href="LogoutServlet">Logout</a>
         <header>
             <img class="logo" src="images/logo.png" href="" alt="logo">
@@ -27,10 +27,10 @@
                             <input type="text" placeholder=" Search.. " name="search">
                             <a href=""><i class="fa-solid fa-magnifying-glass"></i></a></form>
                         </li>
-                        <li style="padding: 10px 5px;border-radius: 10px 10px;background-color:#515050;"><a style="color: #3366cc;" href="home.html">Home</a></li>
+                        <li style="padding: 10px 5px;border-radius: 10px 10px;background-color:#515050;"><a style="color: #3366cc;" href="homeAdmin.jsp">Home</a></li>
                         <li><a href="dashboard.html">Dashboard</a></li>
                         <!-- <li><a href="">Program & Platform</a></li> -->
-                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="AdminServlet">Profile</a></li>
                         
                         
                         <!-- <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li> -->
