@@ -5,19 +5,20 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="bean.UserBean"%>
 
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%--<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <sql:setDataSource var="myDatasource"
 driver="org.apache.derby.jdbc.ClientDriver"
 url="jdbc:derby://localhost:1527/CFDatabase" user="app"
-password="app"/>
+password="app"/>--%>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>User - Crowd Funding</title>
+        <title>User Profile</title>
         <link rel="stylesheet" href="css/styleFund.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
@@ -74,39 +75,18 @@ password="app"/>
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
-<!--                        <button target="_blank" style="text-align: right;" type = "button" class = "btn btn-warning" title = "Edit Profile"> EDIT
-                          <i class = "fas fa-edit"></i>
-                        </button>-->
-<!--                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th><center>Name</center></th>
-                                    <th><center>ID Number</center></th>
-                                    <th><center>Email Address</center></th>
-                                    <th><center>Telephone Number</center></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="col-2"><center>AINA BINTI RAMLI</center></td>
-                                    <td class="col-2"><center>+6011-23456789</center></td>
-                                    <td class="col-2"><center>siti18@gmail.com</center></td>
-                                    <td class="col-2"><center>A092</center></td>
-                                </tr>
-                            </tbody>
-                        </table>-->
-                        <sql:query var="result" dataSource="${myDatasource}">
+<!--                        <sql:query var="result" dataSource="${myDatasource}">
                             SELECT * FROM APP.FUNDER
                         </sql:query>
 
                         <table border="1" class="table">
-                            <!-- column headers -->
+                             column headers 
                             <tr>
                                 <c:forEach var="columnName" items="${result.columnNames}">
                                     <th><c:out value="${columnName}"/></th>
                                     </c:forEach>
                             </tr>
-                            <!-- column data -->
+                             column data 
                             <c:forEach var="row" items="${result.rowsByIndex}">
                                 <tr>
                                     <c:forEach var="column" items="${row}">
@@ -114,7 +94,16 @@ password="app"/>
                                     </c:forEach>
                                 </tr>
                             </c:forEach>
-                        </table>
+                        </table>-->
+                        <ul>
+                            <%
+                                UserBean user = (UserBean) request.getAttribute("user");
+                            %>
+                            <li><span class="label">NAME : </span><%= user.getUsername() %></li>
+                            <li><span class="label">FUNDER ID : </span><%= user.getFunder_id() %></li>
+                            <li><span class="label">TELEPHONE NUMBER : </span><%= user.getPhoneNum() %></li>
+                            <!-- Add more details as needed -->
+                        </ul></a>
                     </div>
                 </section>
 
