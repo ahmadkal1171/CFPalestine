@@ -11,35 +11,27 @@ package bean;
  */
 
 public class UserBean {
-    public int id;
-    public String username;
+    public String name;
     public int funder_id;
+    public String email;
     public int phoneNum;
 
     public UserBean() {
     }
 
-    public UserBean(int id, String username, int funder_id, int phoneNum) {
-        this.id = id;
-        this.username = username;
+    public UserBean(String name, int funder_id, String email, int phoneNum) {
+        this.name = name;
         this.funder_id = funder_id;
+        this.email = email;
         this.phoneNum = phoneNum;
     }
 
-    public int getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getFunder_id() {
@@ -50,6 +42,14 @@ public class UserBean {
         this.funder_id = funder_id;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public int getPhoneNum() {
         return phoneNum;
     }
@@ -57,4 +57,6 @@ public class UserBean {
     public void setPhoneNum(int phoneNum) {
         this.phoneNum = phoneNum;
     }
+    
+    
 }

@@ -75,35 +75,27 @@ password="app"/>--%>
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
-<!--                        <sql:query var="result" dataSource="${myDatasource}">
-                            SELECT * FROM APP.FUNDER
-                        </sql:query>
-
-                        <table border="1" class="table">
-                             column headers 
-                            <tr>
-                                <c:forEach var="columnName" items="${result.columnNames}">
-                                    <th><c:out value="${columnName}"/></th>
-                                    </c:forEach>
-                            </tr>
-                             column data 
-                            <c:forEach var="row" items="${result.rowsByIndex}">
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <c:forEach var="column" items="${row}">
-                                        <td><c:out value="${column}"/></td>
-                                    </c:forEach>
+                                    <th><center>Name</center></th>
+                                    <th><center>User ID</center></th>            
+                                    <th><center>Email</center></th>
+                                    <th><center>Phone Number</center></th>
                                 </tr>
-                            </c:forEach>
-                        </table>-->
-                        <ul>
-                            <%
-                                UserBean user = (UserBean) request.getAttribute("user");
-                            %>
-                            <li><span class="label">NAME : </span><%= user.getUsername() %></li>
-                            <li><span class="label">FUNDER ID : </span><%= user.getFunder_id() %></li>
-                            <li><span class="label">TELEPHONE NUMBER : </span><%= user.getPhoneNum() %></li>
-                            <!-- Add more details as needed -->
-                        </ul></a>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <%
+                                        UserBean user = (UserBean) request.getAttribute("user");
+                                    %>
+                                    <td class="col-2"><center><%= user.getName() %></center></td>
+                                    <td class="col-2"><center><%= user.getFunder_id() %></center></td>
+                                    <td class="col-2"><center><%= user.getEmail() %></center></td>
+                                    <td class="col-2"><center><%= user.getPhoneNum() %></center></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
 
