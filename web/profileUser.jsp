@@ -90,7 +90,7 @@ password="app"/>--%>
                                         UserBean user = (UserBean) request.getAttribute("user");
                                     %>
                                     <td class="col-2"><center><%= user.getName() %></center></td>
-                                    <td class="col-2"><center><%= user.getFunder_id() %></center></td>
+                                    <td class="col-2"><center><%= user.getId() %></center></td>
                                     <td class="col-2"><center><%= user.getEmail() %></center></td>
                                     <td class="col-2"><center><%= user.getPhoneNum() %></center></td>
                                 </tr>
