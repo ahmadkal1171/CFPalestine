@@ -76,7 +76,11 @@ password="app"/>--%>
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
                         
-                        <button id="edit"><i class="fa fa-edit"><a href="editUserProfile.jsp">Edit Profile</a></i></button>
+                        <a href="editUserProfile.jsp">
+                            <button style="margin:1px;" type = "button" class = "btn btn-warning btn-sm" title = "Edit Profile">
+                                <i class = "fas fa-edit"></i>
+                            </button>
+                        </a>
                         
                         <table class="table">
                             <thead>
