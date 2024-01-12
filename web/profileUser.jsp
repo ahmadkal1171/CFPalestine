@@ -89,13 +89,17 @@ password="app"/>--%>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <%
+                                    <td>Test Name</td>
+                                    <td>231</td>
+                                    <td>Test Email</td>
+                                    <td>Test Phone Number</td>
+                                    <%--
                                         UserBean user = (UserBean) request.getAttribute("user");
                                     %>
                                     <td class="col-2"><center><%= user.getName() %></center></td>
                                     <td class="col-2"><center><%= user.getId() %></center></td>
                                     <td class="col-2"><center><%= user.getEmail() %></center></td>
-                                    <td class="col-2"><center><%= user.getPhoneNum() %></center></td>
+                                    <td class="col-2"><center><%= user.getPhoneNum() --%></center></td>
                                 </tr>
                             </tbody>
                         </table>
