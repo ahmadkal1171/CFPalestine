@@ -77,8 +77,9 @@ password="app"/>--%>
                         <center><h1>USER PROFILE</h1></center>
                         
                         <a href="editUserProfile.jsp">
-                            <button style="margin:1px;" type = "button" class = "btn btn-warning btn-sm" title = "Edit Profile">
+                            <button type = "button" class = "btn btn-warning btn-sm" title = "Edit Profile">
                                 <i class = "fas fa-edit"></i>
+                                Edit Profile
                             </button>
                         </a>
                         
