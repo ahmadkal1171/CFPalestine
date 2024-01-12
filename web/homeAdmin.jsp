@@ -28,7 +28,7 @@
                             <a href=""><i class="fa-solid fa-magnifying-glass"></i></a></form>
                         </li>
                         <li style="padding: 10px 5px;border-radius: 10px 10px;background-color:#515050;"><a style="color: #3366cc;" href="homeAdmin.jsp">Home</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="ListFundAdminServlet">Dashboard</a></li>
                         <!-- <li><a href="">Program & Platform</a></li> -->
                         <li><a href="AdminServlet">Profile</a></li>
                         

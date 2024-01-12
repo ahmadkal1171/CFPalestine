@@ -24,6 +24,14 @@
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>AdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListFundAdminServlet</servlet-name>
+        <servlet-class>ListFundAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddProjectServlet</servlet-name>
+        <servlet-class>AddProjectServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListFundAdminServlet</servlet-name>
+        <url-pattern>/ListFundAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddProjectServlet</servlet-name>
+        <url-pattern>/AddProjectServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
