@@ -30,10 +30,10 @@ public class UserDao {
             
             while(resultSet.next()){
                 userNameDB = resultSet.getString("name");
-                idDB = resultSet.getInt("id");
+//                idDB = resultSet.getInt("id");
                 
-                UserBean user = new UserBean(idDB,userNameDB);
-                return user;
+//                UserBean user = new UserBean(idDB,userNameDB);
+//                return user;
             }  
         }catch(SQLException e){
             e.printStackTrace();
