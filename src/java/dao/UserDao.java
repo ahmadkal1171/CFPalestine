@@ -16,8 +16,9 @@ import util.DBConnection;
  *
  * @author HP
  */
+
 public class UserDao {
-    UserBean profileUser(int id){
+    public UserBean profileUser(int id){
         Connection conn=null;
         Statement statement=null;
         ResultSet resultSet=null;

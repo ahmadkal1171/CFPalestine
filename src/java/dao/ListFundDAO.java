@@ -80,5 +80,4 @@ public class ListFundDAO implements listFundDAO {
     }
 }
 
-
 //ni taktau betul ke tak tau tengah buat lagi
