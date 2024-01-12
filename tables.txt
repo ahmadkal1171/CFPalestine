@@ -16,7 +16,7 @@ create table project(
 projectId int primary key generated always as identity,
 projectName varchar(50),
 projectDescription varchar(100),
-deadline DATE
+deadline varchar(20)
 );
 
 CREATE TABLE donate (
