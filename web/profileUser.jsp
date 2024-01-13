@@ -75,13 +75,11 @@ password="app"/>--%>
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
-                        
-                        <a href="editUserProfile.jsp">
-                            <button type = "button" class = "btn btn-warning btn-sm" title = "Edit Profile">
-                                <i class = "fas fa-edit"></i>
-                                Edit Profile
-                            </button>
-                        </a>
+                        <button type = "button" class = "btn-warning btn-sm" title = "Edit Profile">
+                            <a href="editUserProfile.jsp">
+                                <i class = "fas fa-edit">Edit Profile</i> 
+                            </a>
+                        </button>
                         
                         <table class="table">
                             <thead>
@@ -94,17 +92,17 @@ password="app"/>--%>
                             </thead>
                             <tbody>
                                 <tr>
-<!--                                    <td>Test Name</td>
+                                    <td>Test Name</td>
                                     <td>231</td>
                                     <td>Test Email</td>
-                                    <td>Test Phone Number</td>-->
-                                    <%
+                                    <td>Test Phone Number</td>
+                                    <%--
                                         UserBean user = (UserBean) request.getAttribute("user");
                                     %>
                                     <td class="col-2"><center><%= user.getName() %></center></td>
                                     <td class="col-2"><center><%= user.getId() %></center></td>
                                     <td class="col-2"><center><%= user.getEmail() %></center></td>
-                                    <td class="col-2"><center><%= user.getPhoneNum() %></center></td>
+                                    <td class="col-2"><center><%= user.getPhoneNum() --%></center></td>
                                 </tr>
                             </tbody>
                         </table>

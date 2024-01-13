@@ -90,15 +90,35 @@ password="app"/>
                                 <sql:param value="${id}"/>
                             </sql:update> 
                         </c:if>
-
+                    
                         <form action="editUserProfile.jsp" method="POST">
-                            <label for="name">Name:</label>
-                            <input type="text" name="name" value="" /><br>
-                            <label for="sal">Email:</label>
-                            <input type="text" name="email" value="" /><br>
-                            <label for="name">Phone Number:</label>
-                            <input type="text" name="phoneNum" value="" /><br>
-                            <input type="submit" value="Save Edit" />
+                            <table border="1">
+                                <thead>
+                                    <tr>
+                                        <th><label for="name">Name</label></th>
+                                        <th><label for="sal">Email</label></th>
+                                        <th><label for="name">Phone Number</label></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <sql:query var="result" dataSource="${myDatasource}">
+                                        SELECT ID FROM FUNDER
+                                        </sql:query>
+                                        <c:forEach var="row" items="${result.rowsByIndex}">
+                                        <c:forEach var="column" items="${row}">
+                                        <option> <c:out value="${column}"/></option>
+                                        </c:forEach>
+                                        </c:forEach>
+                                        
+                                        <td><input type="text" name="name" value="" /><br></td>
+                                        <td><input type="text" name="email" value="" /><br></td>
+                                        <td><input type="text" name="phoneNum" value="" /><br></td>
+                                        <td><input type="submit" value="Save Edit" /></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </form>
                     </div>
                 </section>

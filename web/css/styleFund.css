@@ -222,8 +222,6 @@ table thead tr{
     margin-bottom: 5px;
 }
 
-.buttonEdit {
-    width: 520px;
-    text-align: right;
-    background-color: rgb(214, 210, 82);
+.btn {
+  border-radius: 5px;
 }
