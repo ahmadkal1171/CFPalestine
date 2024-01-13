@@ -5,22 +5,22 @@ package bean;
  * @author Smiling
  */
 public class LoginUser implements java.io.Serializable{
-     public String fundername;
+     public String funderusername;
      public String funderpass;
 
     public LoginUser (){}
 
-    public LoginUser(String fundername, String funderpass) {
-        this.fundername = fundername;
+    public LoginUser(String funderusername, String funderpass) {
+        this.funderusername = funderusername;
         this.funderpass = funderpass;
     }
 
-    public String getFundername() {
-        return fundername;
+    public String getFunderusername() {
+        return funderusername;
     }
 
-    public void setFundername(String fundername) {
-        this.fundername = fundername;
+    public void setFunderusername(String funderusername) {
+        this.funderusername = funderusername;
     }
 
     public String getFunderpass() {
@@ -30,6 +30,7 @@ public class LoginUser implements java.io.Serializable{
     public void setFunderpass(String funderpass) {
         this.funderpass = funderpass;
     }
-    
+
+   
     
 }
