@@ -76,41 +76,43 @@ password="app"/>
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
                         
-                        <c:set var="name" value="${param.name}"/>
                         <c:set var="id" value="${param.id}"/>
+                        <c:set var="name" value="${param.name}"/>
                         <c:set var="email" value="${param.email}"/>
                         <c:set var="phone_number" value="${param.phone_number}"/>
 
                         <c:if test="${(id!=null)&&(name!=null)&&(email!=null)&&(phone_number!=null)}" var="result">
                             <sql:update var="res" dataSource="${myDatasource}">
                                 UPDATE FUNDER SET NAME = ?, EMAIL = ?, PHONE_NUMBER = ? WHERE ID = ?
+                                <sql:param value="${id}"/> 
                                 <sql:param value="${name}"/>
                                 <sql:param value="${email}"/>
                                 <sql:param value="${phone_number}"/>
-                                <sql:param value="${id}"/>
                             </sql:update> 
                         </c:if>
                     
                         <form action="editUserProfile.jsp" method="POST">
-                            <table border="1">
+                            <table class="table">
                                 <thead>
                                     <tr>
-                                        <th><label for="name">Name</label></th>
-                                        <th><label for="sal">Email</label></th>
-                                        <th><label for="name">Phone Number</label></th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <sql:query var="result" dataSource="${myDatasource}">
-                                        SELECT ID FROM FUNDER
-                                        </sql:query>
-                                        <c:forEach var="row" items="${result.rowsByIndex}">
-                                        <c:forEach var="column" items="${row}">
-                                        <option> <c:out value="${column}"/></option>
-                                        </c:forEach>
-                                        </c:forEach>
+                                        <td><sql:query var="result" dataSource="${myDatasource}">
+                                            SELECT ID FROM FUNDER
+                                            </sql:query>
+                                            <c:forEach var="row" items="${result.rowsByIndex}">
+                                            <c:forEach var="column" items="${row}">
+                                            <option> <c:out value="${column}"/></option>
+                                            </c:forEach>
+                                            </c:forEach><br>
+                                        </td>
                                         
                                         <td><input type="text" name="name" value="" /><br></td>
                                         <td><input type="text" name="email" value="" /><br></td>
