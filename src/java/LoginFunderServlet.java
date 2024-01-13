@@ -66,8 +66,8 @@ public class LoginFunderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            String fundername = request.getParameter("fundername");
-            String funderpass = request.getParameter("funderpass");
+            String fundername = request.getParameter("username");
+            String funderpass = request.getParameter("password");
    
         LoginUser data = new LoginUser(fundername, funderpass);
         LoginUserDao lad = new LoginUserDao();

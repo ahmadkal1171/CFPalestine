@@ -21,12 +21,12 @@ public class LoginUserDao {
         try{
             conn=DBConnection.createConnection();
             statement=conn.createStatement();
-            resultSet=statement.executeQuery("SELECT FUNDERNAME,FUNDERPASS FROM FUNDERS");
+            resultSet=statement.executeQuery("SELECT FUNDERNAME,FUNDERPASS FROM FUNDER");
             while(resultSet.next()){
-                usernameDB=resultSet.getString("fundername");
-                passwordDB=resultSet.getString("funderpass");
+                usernameDB=resultSet.getString("funderName");
+                passwordDB=resultSet.getString("funderPass");
                 
-                if(fundername.equals(usernameDB)&&fundername.equals(passwordDB)){
+                if(fundername.equals(usernameDB)&&funderpass.equals(passwordDB)){
                     return "SUCCESS";
                 }
             }  

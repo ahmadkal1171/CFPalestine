@@ -51,7 +51,7 @@
                         <td><input type="text" name="projDesc" /></td>
                     </tr>
                     <tr>
-                        <td>Dateline </td>
+                        <td>Dateline (YYYY-MM-DD)</td>
                         <td><input type="text" name="dateline" /></td>
                     </tr>
                     <tr>
