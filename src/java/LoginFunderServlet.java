@@ -96,5 +96,4 @@ public class LoginFunderServlet extends HttpServlet {
     public String getServletInfo() {
         return "Login";
     }// </editor-fold>
-
 }
