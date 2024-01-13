@@ -117,7 +117,7 @@ password="app"/>
                                         <td><input type="text" name="name" value="" /><br></td>
                                         <td><input type="text" name="email" value="" /><br></td>
                                         <td><input type="text" name="phoneNum" value="" /><br></td>
-                                        <td><input type="submit" value="Save Edit" /></td>
+                                        <td><input type="submit" value="Save Edit" /><br></td>
                                     </tr>
                                 </tbody>
                             </table>
