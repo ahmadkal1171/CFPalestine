@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import bean.LoginUser;
@@ -12,30 +7,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import util.DBConnection;
 
-/**
- *
- * @author Haikal
- */
 public class LoginUserDao {
     public String authenticateUser(LoginUser loginUser){
-        String username=loginUser.getFundername();
-        String password=loginUser.getFunderpass();
+        String fundername=loginUser.getFundername();
+        String funderpass=loginUser.getFunderpass();
         
         Connection conn=null;
         Statement statement=null;
         ResultSet resultSet=null;
-        String userNameDB="";
+        String usernameDB="";
         String passwordDB="";
         
         try{
             conn=DBConnection.createConnection();
             statement=conn.createStatement();
-            resultSet=statement.executeQuery("SELECT FUNDERNAME,FUNDERPASS FROM FUNDER");
+            resultSet=statement.executeQuery("SELECT FUNDERNAME,FUNDERPASS FROM FUNDERS");
             while(resultSet.next()){
-                userNameDB=resultSet.getString("funderName");
-                passwordDB=resultSet.getString("funderPass");
+                usernameDB=resultSet.getString("fundername");
+                passwordDB=resultSet.getString("funderpass");
                 
-                if(username.equals(userNameDB)&&password.equals(passwordDB)){
+                if(fundername.equals(usernameDB)&&fundername.equals(passwordDB)){
                     return "SUCCESS";
                 }
             }  
