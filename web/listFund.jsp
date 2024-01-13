@@ -12,10 +12,10 @@
 
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<sql:setDataSource var="myDatasource"
-driver="org.apache.derby.jdbc.ClientDriver"
-url="jdbc:derby://localhost:1527/CFDatabase" user="app"
-password="app"/>
+<%@page import="java.util.Iterator"%>
+<%@page import="bean.ListFundAdmin"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -36,7 +36,7 @@ password="app"/>
                         </a>
                     </li>
                     <li>
-                        <a href="dashboardUser.jsp">
+                        <a href="homeUser.jsp">
                             <i class="fas fa-home"></i>
                             <span class="nav-item" >Home</span>
                         </a>
@@ -78,27 +78,37 @@ password="app"/>
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>LIST FUND</h1></center>
-                        
-                        <sql:query var="result" dataSource="${myDataSource}">
-                            SELECT ID, Date, Title 
-                            FROM APP.DONATE
-                        </sql:query>
-                            
                         <table class="table">
-                            <thead>
-                                <c:forEach var="columnName" items="${result.columnNames}">
-                                    <th><c:out value="${columnName}"/></th>
-                                </c:forEach>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="row" items="${result.rowsByIndex}">
+                            <table border="1">
+                                <thead>
                                     <tr>
-                                        <c:forEach var="column" items="${row}">
-                                            <th><c:out value="${column}"/></th>
-                                        </c:forEach>
+                                        <th>Project ID</th>
+                                        <th>Dateline</th>
+                                        <th>Title</th>
                                     </tr>
-                                </c:forEach>
-                            </tbody>
+                                </thead>
+                        <%
+                            List categoryList = (List) request.getAttribute("projectList");
+                            if (categoryList != null) {
+                                Iterator categorys = categoryList.iterator();
+                                while (categorys.hasNext()) {
+                                    ListFundAdmin category = (ListFundAdmin) categorys.next();       
+                        %>   
+                            
+                        
+                                <tbody>
+                                    <tr>
+                                        <td><%=category.getProjId()%></td>
+                                        <td><%=category.getDateline()%></td>
+                                        <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
+                                    </tr>
+                                </tbody>
+                                <%
+                    }
+                }
+            %>
+                            </table>
+
                         </table>
                     </div>
                 </section>

@@ -59,6 +59,7 @@ public class LoginFunderServlet extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
+     * @param LoginUser
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
@@ -66,17 +67,17 @@ public class LoginFunderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
-            String fundername = request.getParameter("fundername");
+            String funderusername = request.getParameter("funderusername");
             String funderpass = request.getParameter("funderpass");
    
-        LoginUser data = new LoginUser(fundername, funderpass);
+        LoginUser data = new LoginUser(funderusername, funderpass);
         LoginUserDao lad = new LoginUserDao();
         
         String userValidate = lad.authenticateUser(data);
         
         if (userValidate.equals("SUCCESS")) {
                 // If authentication is successful, forward to the Home.jsp page
-                request.setAttribute("fundername", fundername);
+                request.setAttribute("funderusername", funderusername);
                 request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
             } else {
                 // If authentication fails, display an error message and forward to the Login.jsp page

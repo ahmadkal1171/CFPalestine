@@ -16,10 +16,7 @@
     <body> 
         <h1 align="center">Home Page</h1> 
         
-        <% 
-        String fundername = request.getParameter("fundername");
-        out.println("<h3 align=center>"+"WELCOME "+ fundername + " " + "TO CROWDFUNDER"+ "</h3>");
-        %>
+        
         
         <div class="container">
           <nav>
@@ -31,7 +28,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="homeUser.html">
+                      <a href="homeUser.jsp">
                           <i class="fas fa-home"></i>
                           <span class="nav-item" >Home</span>
                       </a>
@@ -49,7 +46,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="listFund.html">
+                      <a href="ListFundServlet">
                           <i class="fas fa-list"></i>
                           <span class="nav-item">List Fund</span>
                       </a>
