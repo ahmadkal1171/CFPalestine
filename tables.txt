@@ -1,8 +1,10 @@
 create table funders(
 funderId int primary key generated always as identity,
 funderName varchar(50),
-funderPass varchar(50),
-funderEmail varchar(50));
+funderEmail varchar(50),
+funderPhone varchar(20),
+funderUsername  varchar(30),
+funderPass varchar(50));
 
 CREATE TABLE founder (
     founderId INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
