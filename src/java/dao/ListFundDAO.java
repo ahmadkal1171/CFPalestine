@@ -5,48 +5,6 @@ package dao;
  * @author HP
  */
 
-//import bean.ListFund;
-//import java.sql.Connection;
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
-//import java.sql.Statement;
-//import util.DBConnection;
-//import java.time.LocalDate;
-
-//public class ListFundDAO {
-//    public String userFund(ListFund listFund){
-//        int funderID = listFund.getFunderId();
-//        LocalDate dateHistory = listFund.getDateHistory();
-//        String title = listFund.getTitle();
-//        
-//        Connection conn = null;
-//        Statement statement = null;
-//        ResultSet resultSet = null;
-//        int funderIdDB = 0;
-//        LocalDate dateHistoryDB = LocalDate.of(2024, 1, 8);
-//        String titleDB = "";
-//        
-//        try{
-//            conn = DBConnection.createConnection();
-//            statement = conn.createStatement();
-//            resultSet = statement.executeQuery("SELECT funderId, Date, Title FROM APP.DONATE");
-//            while(resultSet.next()){
-//                funderIdDB = resultSet.getInt("funderId");
-//                dateHistoryDB = resultSet.getString("dateHistory");
-//                titleDB = resultSet.getString("title");
-//                
-//                if(username.equals(userNameDB)&&password.equals(passwordDB)){
-//                    return "SUCCESS";
-//                }
-//            }  
-//        }catch(SQLException e){
-//            e.printStackTrace();
-//        }
-//        
-//        return "Invalid user credentials";
-//    }
-//}
-
 import bean.ListFund;
 import bean.ListFund.listFundDAO;
 import java.sql.Connection;
@@ -54,30 +12,68 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import util.DBConnection;
 
 public class ListFundDAO implements listFundDAO {
-    private Connection connection;
-
-    public ListFundDAO (String url, String username, String password) throws SQLException {
-        connection = DriverManager.getConnection(url, username, password);
-    }
+//    private Connection connection;
+//
+//    public ListFundDAO (String url, String username, String password) throws SQLException {
+//        connection = DriverManager.getConnection(url, username, password);
+//    }
 
     public List<ListFund> getListFund() throws SQLException {
-        String sql = "SELECT * FROM DONATE";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        ResultSet resultSet = statement.executeQuery();
-        List<ListFund> listFunds = new ArrayList<>();
-        while (resultSet.next()) {
-            ListFund fund = new ListFund();
-            fund.setFunderId(resultSet.getInt("funderId"));
-            fund.setTitle(resultSet.getString("title"));
-            fund.setDateHistory(resultSet.getDate("dateHistory").toLocalDate());
-            listFunds.add(fund);
+//        String sql = "SELECT * FROM DONATE";
+//        PreparedStatement statement = connection.prepareStatement(sql);
+//        ResultSet resultSet = statement.executeQuery();
+//        List<ListFund> listFunds = new ArrayList<>();
+//        while (resultSet.next()) {
+//            ListFund fund = new ListFund();
+//            fund.setFunderId(resultSet.getInt("funderId"));
+//            fund.setTitle(resultSet.getString("title"));
+//            fund.setDateHistory(resultSet.getDate("date").toLocalDate());
+//            listFunds.add(fund);
+//        }
+//        return listFunds;
+        
+        List projList = new LinkedList();        
+        Connection con = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String sql = "";
+        int projIdDB = 0;
+//        String projIdDB = "";
+        String fundIdDB = "";
+        LocalDate dateDB = null;
+        String titleDB = "";
+        
+        try {
+            con = DBConnection.createConnection();
+            statement = con.createStatement();
+
+            sql = "select * from DONATE";
+
+            resultSet = statement.executeQuery(sql);
+
+             while (resultSet.next()) {
+//                projIdDB = resultSet.getInt("projectId");
+                fundIdDB = resultSet.getString("funderId");
+                dateDB = resultSet.getDate("date").toLocalDate();
+                titleDB = resultSet.getString("title");
+                
+                ListFund lfa = new ListFund(fundIdDB,dateDB,titleDB);
+                projList.add(lfa);
+             }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        return listFunds;
+        
+        return projList;
+        
     }
 }
-
-//ni taktau betul ke tak tau tengah buat lagi
