@@ -5,23 +5,23 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.Iterator"%>
+<%--<%@page import="java.util.Iterator"%>
 <%@page import="bean.ListFund"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.*"%>
+<%@page import="java.util.*"%>--%>
 
-<%--<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <sql:setDataSource var="myDatasource"
 driver="org.apache.derby.jdbc.ClientDriver"
 url="jdbc:derby://localhost:1527/CFDatabase" user="app"
-password="app"/>--%>
+password="app"/>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>User - Crowd Funding</title>
+        <title>User - List Fund</title>
         <link rel="stylesheet" href="css/styleFund.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
@@ -113,5 +113,3 @@ password="app"/>--%>
         </div>
     </body>
 </html>
-
-<%-- taktau betul ke tidak lagi tau --%>

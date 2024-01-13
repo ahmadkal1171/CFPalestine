@@ -34,5 +34,15 @@ password="app"/>
                 <sql:param value="${id}"/>
             </sql:update> 
         </c:if>
+                
+        <form action="editUserProfile.jsp" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" name="name" value="" />
+            <label for="sal">Email:</label>
+            <input type="text" name="email" value="" />
+            <label for="name">Phone Number:</label>
+            <input type="text" name="phoneNum" value="" />
+            <input type="submit" value="Save Edit" /> Save
+        </form>
     </body>
 </html>
