@@ -13,7 +13,7 @@
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="bean.ListFund"%>
+<%@page import="bean.ListFundAdmin"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.*"%>
 
@@ -85,13 +85,13 @@
                             if (categoryList != null) {
                                 Iterator categorys = categoryList.iterator();
                                 while (categorys.hasNext()) {
-                                    ListFund category = (ListFund) categorys.next();       
+                                    ListFundAdmin category = (ListFundAdmin) categorys.next();       
                         %>   
                             <tbody>
                                 <tr>
-                                    <td><%=category.getFunderId()%></td>
-                                    <td><%=category.getDateHistory()%></td>
-                                    <td><%=category.getTitle()%></td>
+                                    <td><%=category.getProjId()%></td>
+                                    <td><%=category.getDateline()%></td>
+                                    <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
                                 </tr>
                             </tbody>
                         <%
