@@ -1,55 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bean;
 
-/**
- *
- * @author Haikal
- */
-public class RegisterBean {
-    String username;
-    String password;
-    String email;
-    
+public class RegisterBean implements java.io.Serializable{
+    String fundername;
+    String funderpass;
+    String funderemail;
 
-    public RegisterBean(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        
+    public RegisterBean(String fundername, String funderpass, String funderemail) {
+        this.fundername = fundername;
+        this.funderpass = funderpass;
+        this.funderemail = funderemail;
     }
 
-    public String getUsername() {
-        return username;
+    public RegisterBean() {
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getFundername() {
+        return fundername;
     }
 
-    public String getPassword() {
-        return password;
+    public void setFundername(String fundername) {
+        this.fundername = fundername;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getFunderpass() {
+        return funderpass;
     }
 
-    public String getEmail() {
-        return email;
+    public void setFunderpass(String funderpass) {
+        this.funderpass = funderpass;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String setFunderemail() {
+        return funderemail;
     }
 
-
+    public void setFunderemail(String funderemail) {
+        this.funderemail = funderemail;
+    }
     
     
-
     
     
 }
