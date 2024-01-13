@@ -65,7 +65,7 @@ public class ListFundDAO implements listFundDAO {
     }
 
     public List<ListFund> getListFund() throws SQLException {
-        String sql = "SELECT funderId, Date, Title FROM APP.DONATE";
+        String sql = "SELECT funderId, Date, Title FROM DONATE";
         PreparedStatement statement = connection.prepareStatement(sql);
         ResultSet resultSet = statement.executeQuery();
         List<ListFund> listFunds = new ArrayList<>();
