@@ -47,7 +47,7 @@ public class AddProjectServlet extends HttpServlet {
             String addProj=lad.addProject(lfa);
             if (addProj.equals("SUCCESS")) {
                 //login page
-                request.setAttribute("successMessage", "CATEGORY HAS BEEN ADD SUCCESSFULLY");
+                request.setAttribute("successMessage", "PROJECT HAS BEEN ADD SUCCESSFULLY");
                 request.getRequestDispatcher("/listFundAdmin.jsp").forward(request, response);
             }
 
