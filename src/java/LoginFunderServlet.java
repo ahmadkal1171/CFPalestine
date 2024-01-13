@@ -7,7 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class LoginFunderServlet extends HttpServlet {
+/**
+ *
+ * @author Smiling
+ */
+public class LoginUserServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -19,26 +24,18 @@ public class LoginFunderServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String fundername = request.getParameter("username");
-            String funderpass = request.getParameter("password");
-  
-        LoginUser data = new LoginUser(fundername, funderpass);
-        LoginUserDao loginDao = new LoginUserDao();
-        
-        String userValidate = loginDao.authenticateUser(data);
-        
-        out.print(userValidate);
-        return;
-//        if (userValidate.equals("SUCCESS")) {
-//                // If authentication is successful, forward to the Home.jsp page
-//                request.setAttribute("fundername", fundername);
-//                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
-//            } else {
-//                // If authentication fails, display an error message and forward to the Login.jsp page
-//                request.setAttribute("errMessage", userValidate);
-//                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
-//            }
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet LoginUserServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet LoginUserServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
     }
 
@@ -62,18 +59,41 @@ public class LoginFunderServlet extends HttpServlet {
      *
      * @param request servlet request
      * @param response servlet response
-     * @param loginBean
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try (PrintWriter out = response.getWriter()) {
+            String fundername = request.getParameter("fundername");
+            String funderpass = request.getParameter("funderpass");
+   
+        LoginUser data = new LoginUser(fundername, funderpass);
+        LoginUserDao lad = new LoginUserDao();
         
+        String userValidate = lad.authenticateUser(data);
         
+        if (userValidate.equals("SUCCESS")) {
+                // If authentication is successful, forward to the Home.jsp page
+                request.setAttribute("fundername", fundername);
+                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
+            } else {
+                // If authentication fails, display an error message and forward to the Login.jsp page
+                request.setAttribute("errMessage", userValidate);
+                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
+            }
+        }
     }
 
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
-        return "Login Servlet";
-    }
+        return "Login";
+    }// </editor-fold>
+
 }
