@@ -23,18 +23,24 @@ public class UserDao {
         Statement statement=null;
         ResultSet resultSet=null;
         String userNameDB="";
+        int idDB=0;
+        String emailDB="";
+        String phoneDB="";
+        
         
         try{
             conn = DBConnection.createConnection();
             statement = conn.createStatement();
-            resultSet = statement.executeQuery("SELECT id, name FROM funder where id="+id);
+            resultSet = statement.executeQuery("SELECT FUNDERID,FUNDERNAME,FUNDEREMAIL,FUNDERPHONE FROM funder where FUNDERID="+id);
             
             while(resultSet.next()){
-                userNameDB = resultSet.getString("name");
-//                idDB = resultSet.getInt("id");
+                userNameDB = resultSet.getString("funderName");
+                idDB = resultSet.getInt("funderId");
+                emailDB = resultSet.getString("funderEmail");
+                phoneDB = resultSet.getString("funderPhone");
                 
-//                UserBean user = new UserBean(idDB,userNameDB);
-//                return user;
+                UserBean user = new UserBean(idDB,userNameDB,emailDB,phoneDB);
+                return user;
             }  
         }catch(SQLException e){
             e.printStackTrace();

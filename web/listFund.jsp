@@ -78,8 +78,7 @@
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>LIST FUND</h1></center>
-                        <table class="table">
-                            <table border="1">
+                            <table border="1" class="table">
                                 <thead>
                                     <tr>
                                         <th>Project ID</th>
@@ -107,8 +106,6 @@
                     }
                 }
             %>
-                            </table>
-
                         </table>
                     </div>
                 </section>

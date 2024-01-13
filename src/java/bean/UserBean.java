@@ -14,17 +14,16 @@ public class UserBean {
     public int id;
     public String name;
     public String email;
-    public int phoneNum;
+    public String numPhone;
 
-    public UserBean() {
-    }
-
-    public UserBean(int id, String name, String email, int phoneNum) {
+    public UserBean(int id, String name, String email, String numPhone) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.phoneNum = phoneNum;
+        this.numPhone = numPhone;
     }
+
+    
 
     public int getId() {
         return id;
@@ -50,11 +49,19 @@ public class UserBean {
         this.email = email;
     }
 
-    public int getPhoneNum() {
-        return phoneNum;
+    public String getNumPhone() {
+        return numPhone;
     }
 
-    public void setPhoneNum(int phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setNumPhone(String numPhone) {
+        this.numPhone = numPhone;
     }
+   
+    
+    
+
+    
+    
+
+    
 }
