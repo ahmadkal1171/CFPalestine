@@ -13,7 +13,7 @@
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="bean.ListFundAdmin"%>
+<%@page import="bean.ListFund"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.*"%>
 
@@ -30,10 +30,8 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#" class="logo">
-                            <img src="images/logo.png" style="height: 40%;">
-                            <span class="nav-item">Donators</span>
-                        </a>
+                        <img src="images/logo.png" style="height: 40%;">
+                        <span class="nav-item">Donators</span>
                     </li>
                     <li>
                         <a href="homeUser.jsp">
@@ -60,12 +58,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <i class="fas fa-comment"></i>
-                            <span class="nav-item">Contact</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="#" class="logout">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="nav-item">Log out</span>
@@ -78,31 +70,29 @@
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>LIST FUND</h1></center>
-                            <table border="1" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Project ID</th>
-                                        <th>Dateline</th>
-                                        <th>Title</th>
-                                    </tr>
-                                </thead>
+                        <table border="1" class="table">
+                            <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Date</th>
+                                    <th>Title</th>
+                                </tr>
+                            </thead>
                         <%
                             List categoryList = (List) request.getAttribute("projectList");
                             if (categoryList != null) {
                                 Iterator categorys = categoryList.iterator();
                                 while (categorys.hasNext()) {
-                                    ListFundAdmin category = (ListFundAdmin) categorys.next();       
+                                    ListFund category = (ListFund) categorys.next();       
                         %>   
-                            
-                        
-                                <tbody>
-                                    <tr>
-                                        <td><%=category.getProjId()%></td>
-                                        <td><%=category.getDateline()%></td>
-                                        <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
-                                    </tr>
-                                </tbody>
-                                <%
+                            <tbody>
+                                <tr>
+                                    <td><%=category.getFunderId()%></td>
+                                    <td><%=category.getDateHistory()%></td>
+                                    <td><%=category.getTitle()%></td>
+                                </tr>
+                            </tbody>
+                        <%
                     }
                 }
             %>
