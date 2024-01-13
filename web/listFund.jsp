@@ -30,8 +30,10 @@
             <nav>
                 <ul>
                     <li>
-                        <img src="images/logo.png" style="height: 40%;">
-                        <span class="nav-item">Donators</span>
+                        <a href="#">
+                            <img src="images/logo.png" style="height: 40%;">
+                            <span class="nav-item">Donators</span>
+                        </a>
                     </li>
                     <li>
                         <a href="homeUser.jsp">
