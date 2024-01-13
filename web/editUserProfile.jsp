@@ -24,7 +24,7 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#" class="logo">
+                        <a class="logo">
                             <img src="images/logo.png" style="height: 40%;">
                             <span class="nav-item">Donators</span>
                         </a>
@@ -51,12 +51,6 @@
                         <a href="listFund.jsp">
                             <i class="fas fa-list"></i>
                             <span class="nav-item">List Fund</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-comment"></i>
-                            <span class="nav-item">Contact</span>
                         </a>
                     </li>
                     <li>

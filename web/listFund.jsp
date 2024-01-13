@@ -32,7 +32,7 @@
                     <li>
                         <a class="logo">
                             <img src="images/logo.png" style="height: 40%;">
-                            <span class="nav-item">Donators</span>
+                            <span class="nav-item">  Donators</span>
                         </a>
                     </li>
                     <li>
