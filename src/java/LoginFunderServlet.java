@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Smiling
  */
-public class LoginUserServlet extends HttpServlet {
+public class LoginFunderServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
