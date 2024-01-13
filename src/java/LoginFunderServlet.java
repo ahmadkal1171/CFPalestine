@@ -28,15 +28,17 @@ public class LoginFunderServlet extends HttpServlet {
         
         String userValidate = loginDao.authenticateUser(data);
         
-        if (userValidate.equals("SUCCESS")) {
-                // If authentication is successful, forward to the Home.jsp page
-                request.setAttribute("fundername", fundername);
-                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
-            } else {
-                // If authentication fails, display an error message and forward to the Login.jsp page
-                request.setAttribute("errMessage", userValidate);
-                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
-            }
+        out.print(userValidate);
+        return;
+//        if (userValidate.equals("SUCCESS")) {
+//                // If authentication is successful, forward to the Home.jsp page
+//                request.setAttribute("fundername", fundername);
+//                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
+//            } else {
+//                // If authentication fails, display an error message and forward to the Login.jsp page
+//                request.setAttribute("errMessage", userValidate);
+//                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
+//            }
         }
     }
 

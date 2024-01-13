@@ -4,13 +4,9 @@
  * and open the template in the editor.
  */
 
-import bean.ListFundAdmin;
 import dao.ListAdminDao;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Haikal
  */
-public class AddProjectServlet extends HttpServlet {
+public class DeleteProjectServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,25 +32,26 @@ public class AddProjectServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String projName=request.getParameter("projName");
-            String projDesc=request.getParameter("projDesc");
-            String dateline=request.getParameter("dateline");
+            int projId = Integer.parseInt(request.getParameter("projId"));
             
-     
-            ListFundAdmin lfa = new ListFundAdmin(0,projName,dateline,projDesc);
-            ListAdminDao lad= new ListAdminDao();
+            ListAdminDao lad = new ListAdminDao();
             
-            String addProj=lad.addProject(lfa);
-            if (addProj.equals("SUCCESS")) {
+            String execute = lad.deleteProject(projId);
+            
+//            out.print(execute);
+//            return;
+            
+            if (execute.equals("SUCCESS")) {
+
                 //login page
-                request.setAttribute("successMessage", "CATEGORY HAS BEEN ADD SUCCESSFULLY");
+                request.setAttribute("successMessage", "PROJECT HAS BEEN DELETE SUCCESSFULLY");
                 request.getRequestDispatcher("/listFundAdmin.jsp").forward(request, response);
             }
 
             //register fail
-            request.setAttribute("errorMessage", addProj);
+            request.setAttribute("errorMessage", execute);
             request.getRequestDispatcher("/editList.jsp").forward(request, response);
-            
+        
         }
     }
 

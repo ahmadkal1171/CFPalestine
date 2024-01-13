@@ -1,6 +1,6 @@
 <%-- 
-    Document   : listFundAdmin
-    Created on : Jan 13, 2024, 1:52:26 AM
+    Document   : editList
+    Created on : Jan 13, 2024, 4:22:28 PM
     Author     : Haikal
 --%>
 
@@ -13,9 +13,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Customize Project</title>
     </head>
     <body>
+        <h1>Hello World!</h1>
         <nav>
                     <ul>
                       <li><form action="/action_page.php">
@@ -31,7 +32,6 @@
                         <!-- <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li> -->
                     </ul>
                 </nav>
-        <h1>Hello World!</h1>
         <b>Add Project</b>
         <form action="AddProjectServlet" method="POST">
             <table border="0">
@@ -86,7 +86,6 @@
                     }
                 }
             %>
-         End list of the project  
-                   
+         End list of the project         
     </body>
 </html>

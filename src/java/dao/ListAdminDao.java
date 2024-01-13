@@ -125,7 +125,7 @@ public class ListAdminDao {
         
        
         String projName = listProj.getProjName();
-        String projDesc = listProj.getProjName();
+        String projDesc = listProj.getProjDesc();
         String dateline = listProj.getDateline();
 
         Connection con = null;
@@ -140,7 +140,7 @@ public class ListAdminDao {
                 return "CATEGORY ALREADY EXISTS";
             }
             
-            sql = "insert into PROJECT(PROJECTNAME,PROJECTDESCRIPTION,DEADLINE) values('"+projName+"',"+projDesc+",'"+dateline+"')";
+            sql = "insert into PROJECT(PROJECTNAME,PROJECTDESCRIPTION,DEADLINE) values('"+projName+"','"+projDesc+"','"+dateline+"')";
 
             statement.executeUpdate(sql);
 
@@ -153,29 +153,29 @@ public class ListAdminDao {
     }
 //    
 //    
-//    public String deleteCategory(String categoryId){
-//
-//        Connection con = null;
-//        Statement statement = null;
-//        String sql = "";
-//
-//        try {
-//            con = DBConnection.createConnection();
-//            statement = con.createStatement();
-//
-//            sql = "delete from category where category_id="+categoryId;
-//
-//            statement.executeUpdate(sql);
-//
-//            return "SUCCESS";
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//        return "FAILED. PLEASE TRY AGAIN";
-//    }
+    public String deleteProject(int projId){
+
+        Connection con = null;
+        Statement statement = null;
+        String sql = "";
+
+        try {
+            con = DBConnection.createConnection();
+            statement = con.createStatement();
+
+            sql = "delete from PROJECT where PROJECTid="+projId;
+
+            statement.executeUpdate(sql);
+
+            return "SUCCESS";
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return "FAILED. PLEASE TRY AGAIN";
+    }
     
-    public boolean isExists(String categoryName) {
+    public boolean isExists(String projName) {
 
         Connection con = null;
         Statement statement = null;
@@ -194,9 +194,9 @@ public class ListAdminDao {
 
             while (resultSet.next()) {
 
-                projNameDB = resultSet.getString("projName");
+                projNameDB = resultSet.getString("projectName");
 
-                if (categoryName.equals(projNameDB)) {
+                if (projName.equals(projNameDB)) {
                     return true;
                 }
             }
