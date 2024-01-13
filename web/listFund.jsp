@@ -13,7 +13,7 @@
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.Iterator"%>
-<%@page import="bean.ListFund"%>
+<%@page import="bean.ListFundAdmin"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.*"%>
 
@@ -32,7 +32,7 @@
                     <li>
                         <a class="logo">
                             <img src="images/logo.png" style="height: 40%;">
-                            <span class="nav-item">  Donators</span>
+                            <span class="nav-item">Donators</span>
                         </a>
                     </li>
                     <li>
@@ -75,8 +75,8 @@
                         <table border="1" class="table">
                             <thead>
                                 <tr>
-                                    <th>User ID</th>
-                                    <th>Date</th>
+                                    <th>Project ID</th>
+                                    <th>Dateline</th>
                                     <th>Title</th>
                                 </tr>
                             </thead>
@@ -85,13 +85,13 @@
                             if (categoryList != null) {
                                 Iterator categorys = categoryList.iterator();
                                 while (categorys.hasNext()) {
-                                    ListFund category = (ListFund) categorys.next();       
+                                    ListFundAdmin category = (ListFundAdmin) categorys.next();       
                         %>   
                             <tbody>
                                 <tr>
-                                    <td><%=category.getFunderId()%></td>
-                                    <td><%=category.getDateHistory()%></td>
-                                    <td><%=category.getTitle()%></td>
+                                    <td><%=category.getProjId()%></td>
+                                    <td><%=category.getDateline()%></td>
+                                    <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
                                 </tr>
                             </tbody>
                         <%

@@ -26,10 +26,6 @@ public class ListFund implements java.io.Serializable{
         this.title = title;
     }
 
-    public ListFund(String fundIdDB, LocalDate dateDB, String titleDB) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public int getFunderId() {
         return funderId;
     }
