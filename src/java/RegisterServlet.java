@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import bean.RegisterBean;
 import dao.RegisterDao;
+import java.util.LinkedList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 /**
  *
@@ -31,34 +33,6 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            String username = request.getParameter("username");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-
-            RegisterBean rb = new RegisterBean(username,password,email);
-
-            RegisterDao rd = new RegisterDao();
-
-            String validate = rd.registerVisitor(rb);
-
-//            out.print(validate);
-//            return;
-            
-            if (validate.equals("SUCCESS")) {
-
-                //login page
-                request.setAttribute("successMessage", "ACCOUNT HAS BEEN CREATED SUCCESSFULLY");
-                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
-            }
-            else{
-                //register fail
-                request.setAttribute("errorMessage", validate);
-                RequestDispatcher view = request.getRequestDispatcher("/register.jsp");
-                view.forward(request, response);
-            }
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -87,8 +61,49 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+//        processRequest(request, response);
+        List errorMsgs = new LinkedList();
+        
+        String fundername = request.getParameter("fundername");
+        String funderpass = request.getParameter("funderpass");
+        String confirmpassword = request.getParameter("confirmpassword");
+        String funderemail = request.getParameter("funderemail");
+        
+        RegisterBean rb = new RegisterBean();
+        rb.setFundername(fundername);
+        rb.setFunderpass(funderpass);
+        rb.setFunderemail(funderemail);
+
+        if ((funderemail == null) || funderemail.length() == 0) {
+            errorMsgs.add("Please enter your email");
+        }
+        if ((fundername == null) || fundername.length() == 0) {
+            errorMsgs.add("Please enter your username");
+        }
+        if ((funderpass == null) || funderpass.length() == 0) {
+            errorMsgs.add("Please enter your password");
+        }
+        if ((confirmpassword == null) || confirmpassword.length() == 0) {
+            errorMsgs.add("Please confirm your password");
+        }
+
+        if (errorMsgs.isEmpty()) {
+            RegisterDao rd = new RegisterDao();
+            String statusRegister = rd.registerUser(rb);
+
+            if (statusRegister.equals("SUCCESS")) {
+                request.setAttribute("fundername", fundername);
+                request.setAttribute("errMessage", "You have sign up successfully.");
+                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
+            } else {
+                request.setAttribute("errorMsgs", statusRegister);
+                request.getRequestDispatcher("/registerUser.jsp").forward(request, response);
+            }
+        } else {
+            request.setAttribute("errorMsgs", errorMsgs);
+            request.getRequestDispatcher("/registerUser.jsp").forward(request, response);
+        }
+   }
 
     /**
      * Returns a short description of the servlet.
