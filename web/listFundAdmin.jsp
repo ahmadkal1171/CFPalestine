@@ -62,9 +62,7 @@
                 </tbody>
             </table>
         </form>
-        
-        
-                    
+               
         List of the project
             <%
                 List categoryList = (List) request.getAttribute("projectList");

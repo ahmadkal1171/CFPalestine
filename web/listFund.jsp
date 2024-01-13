@@ -5,13 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="bean.ListFund"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
 
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+<%--<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <sql:setDataSource var="myDatasource"
 driver="org.apache.derby.jdbc.ClientDriver"
 url="jdbc:derby://localhost:1527/CFDatabase" user="app"
-password="app"/>
+password="app"/>--%>
 
 <!DOCTYPE html>
 <html>
