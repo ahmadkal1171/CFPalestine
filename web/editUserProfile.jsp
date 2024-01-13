@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="profile-user.jsp">
+                        <a href="UserServlet">
                             <i class="fas fa-user"></i>
                             <span class="nav-item">Profile</span>
                         </a>
@@ -69,20 +69,7 @@
                         <center><h1>USER PROFILE</h1></center>
                         
                         
-                        <c:set var="id" value="${param.id}"/>
-                        <c:set var="name" value="${param.name}"/>
-                        <c:set var="email" value="${param.email}"/>
-                        <c:set var="phone_number" value="${param.phone_number}"/>
-
-                        <c:if test="${(id!=null)&&(name!=null)&&(email!=null)&&(phone_number!=null)}" var="result">
-                            <sql:update var="res" dataSource="${myDatasource}">
-                                UPDATE FUNDER SET NAME = ?, EMAIL = ?, PHONE_NUMBER = ? WHERE ID = ?
-                                <sql:param value="${id}"/> 
-                                <sql:param value="${name}"/>
-                                <sql:param value="${email}"/>
-                                <sql:param value="${phone_number}"/>
-                            </sql:update> 
-                        </c:if>
+                        
                     
                         <form action="UpdateProfile" method="POST">
                             <table border="1">
@@ -98,8 +85,8 @@
                                 <tbody>
                                     <tr>
                                         <%
-                                        UserBean user = (UserBean) request.getAttribute("user");
-                                    %>
+                                            UserBean user = (UserBean) request.getAttribute("user");
+                                        %>
                                         
                                         <td><input type="hidden" name="id" value="<%= user.getId() %>" /><br></td>
                                         <td><input type="text" name="name" value="<%= user.getName() %>" /><br></td>

@@ -36,7 +36,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="profile-user.jsp">
+                        <a href="UserServlet">
                             <i class="fas fa-user"></i>
                             <span class="nav-item">Profile</span>
                         </a>

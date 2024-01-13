@@ -67,7 +67,7 @@ public class UserDao {
                 return "Email ALREADY EXISTS";
             }
             
-            sql = "update category set funderName='"+name+"',funderPhone='"+phone+"',funderEmail='"+email
+            sql = "update funders set funderName='"+name+"',funderPhone='"+phone+"',funderEmail='"+email
                     + "' where funderId="+id;
             
 //            return sql;
@@ -93,7 +93,7 @@ public class UserDao {
             con = DBConnection.createConnection();
             statement = con.createStatement();
 
-            sql = "select funderEmail FROM FUNDER";
+            sql = "select funderEmail FROM FUNDERs";
 
             resultSet = statement.executeQuery(sql);
 
