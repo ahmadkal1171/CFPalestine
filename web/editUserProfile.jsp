@@ -4,6 +4,7 @@
     Author     : HP
 --%>
 
+<%@page import="bean.UserBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
@@ -83,8 +84,8 @@
                             </sql:update> 
                         </c:if>
                     
-                        <form action="editUserProfile.jsp" method="POST">
-                            <table class="table">
+                        <form action="UpdateProfile" method="POST">
+                            <table border="1">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -96,11 +97,15 @@
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <%
+                                        UserBean user = (UserBean) request.getAttribute("user");
+                                    %>
                                         
-                                        <td><input type="text" name="name" value="" /><br></td>
-                                        <td><input type="text" name="email" value="" /><br></td>
-                                        <td><input type="text" name="phoneNum" value="" /><br></td>
-                                        <td><input type="submit" value="Save Edit" /><br></td>
+                                        <td><input type="hidden" name="id" value="<%= user.getId() %>" /><br></td>
+                                        <td><input type="text" name="name" value="<%= user.getName() %>" /><br></td>
+                                        <td><input type="text" name="email" value="<%= user.getEmail() %>" /><br></td>
+                                        <td><input type="text" name="phoneNum" value=<%= user.getNumPhone()%>"" /><br></td>
+                                        <td><input type="submit" value="Save Edit" /></td>
                                     </tr>
                                 </tbody>
                             </table>

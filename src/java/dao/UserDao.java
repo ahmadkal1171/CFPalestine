@@ -47,5 +47,67 @@ public class UserDao {
         }
         return null;
     }
+           public String editUser(UserBean userBean){
+        
+        int id = userBean.getId();
+        String name = userBean.getName();
+        String email = userBean.getEmail();
+        String phone = userBean.getNumPhone();
+
+        Connection con = null;
+        Statement statement = null;
+        String sql = "";
+
+        try {
+            con = DBConnection.createConnection();
+            statement = con.createStatement();
+
+            if (isExists(email)) {
+                return "Email ALREADY EXISTS";
+            }
             
+            sql = "update category set funderName='"+name+"',funderPhone='"+phone+"',funderEmail='"+email
+                    + "' where funderId="+id;
+            
+//            return sql;
+            statement.executeUpdate(sql);
+
+            return "SUCCESS";
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return "FAILED. PLEASE TRY AGAIN";
+    }
+     public boolean isExists(String email) {
+
+        Connection con = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String sql = "";
+        String emailDB = "";
+
+        
+        try {
+            con = DBConnection.createConnection();
+            statement = con.createStatement();
+
+            sql = "select funderEmail FROM FUNDER";
+
+            resultSet = statement.executeQuery(sql);
+
+            while (resultSet.next()) {
+
+                emailDB = resultSet.getString("funderEmail");
+
+                if (email.equals(emailDB)) {
+                    return true;
+                }
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
 }
