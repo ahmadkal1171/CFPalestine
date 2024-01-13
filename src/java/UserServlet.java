@@ -46,6 +46,7 @@ public class UserServlet extends HttpServlet {
 //            out.println("User ID: " + user.getId());
 //            out.println("User Name: " + user.getName());
 //            out.println("User Email: " + user.getEmail());
+
 //            return;
             if(user == null){
                 request.setAttribute("errorMessage", "INTERNAL PROBLEM");

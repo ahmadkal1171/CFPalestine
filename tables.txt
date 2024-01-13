@@ -1,4 +1,4 @@
-create table funder(
+create table funders(
 funderId int primary key generated always as identity,
 funderName varchar(50),
 funderEmail varchar(50),
@@ -27,6 +27,6 @@ CREATE TABLE donate (
     fundingDate DATE,
     funderID INT,
     projectID INT,
-    FOREIGN KEY (funderID) REFERENCES funder(funderId),
+    FOREIGN KEY (funderID) REFERENCES funders(funderId),
     FOREIGN KEY (projectID) REFERENCES project(projectId)
 );

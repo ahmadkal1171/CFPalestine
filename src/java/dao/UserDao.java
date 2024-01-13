@@ -18,6 +18,7 @@ import util.DBConnection;
  */
 
 public class UserDao {
+    
     public UserBean profileUser(int id){
         Connection conn=null;
         Statement statement=null;
@@ -31,10 +32,10 @@ public class UserDao {
         try{
             conn = DBConnection.createConnection();
             statement = conn.createStatement();
-            resultSet = statement.executeQuery("SELECT FUNDERID,FUNDERNAME,FUNDEREMAIL,FUNDERPHONE FROM funder where FUNDERID="+id);
+            resultSet = statement.executeQuery("SELECT FUNDERID,FUNDERUSERNAME,FUNDEREMAIL,FUNDERPHONE FROM funders where FUNDERID="+id);
             
             while(resultSet.next()){
-                userNameDB = resultSet.getString("funderName");
+                userNameDB = resultSet.getString("funderUsername");
                 idDB = resultSet.getInt("funderId");
                 emailDB = resultSet.getString("funderEmail");
                 phoneDB = resultSet.getString("funderPhone");
@@ -110,4 +111,7 @@ public class UserDao {
         }
         return false;
     }
+
+    
+     
 }
