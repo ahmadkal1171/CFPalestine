@@ -55,7 +55,7 @@ public class ListFundDAO implements listFundDAO {
             con = DBConnection.createConnection();
             statement = con.createStatement();
 
-            sql = "select * from DONATE";
+            sql = "SELECT * from DONATE";
 
             resultSet = statement.executeQuery(sql);
 
