@@ -7,13 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="bean.UserBean"%>
 
-<%--<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<sql:setDataSource var="myDatasource"
-driver="org.apache.derby.jdbc.ClientDriver"
-url="jdbc:derby://localhost:1527/CFDatabase" user="app"
-password="app"/>--%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,7 +26,7 @@ password="app"/>--%>
                         </a>
                     </li>
                     <li>
-                        <a href="dashboardUser.jsp">
+                        <a href="homeUser.jsp">
                             <i class="fas fa-home"></i>
                             <span class="nav-item" >Home</span>
                         </a>
@@ -92,17 +85,15 @@ password="app"/>--%>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Test Name</td>
-                                    <td>231</td>
-                                    <td>Test Email</td>
-                                    <td>Test Phone Number</td>
-                                    <%--
+<!--                                    <td>Test Phone Number</td>-->
+                                    <%
                                         UserBean user = (UserBean) request.getAttribute("user");
                                     %>
                                     <td class="col-2"><center><%= user.getName() %></center></td>
                                     <td class="col-2"><center><%= user.getId() %></center></td>
                                     <td class="col-2"><center><%= user.getEmail() %></center></td>
-                                    <td class="col-2"><center><%= user.getPhoneNum() --%></center></td>
+                                    <td class="col-2"><center><%= user.getNumPhone()%></center></td>
+                                    
                                 </tr>
                             </tbody>
                         </table>

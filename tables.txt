@@ -1,9 +1,9 @@
-create table funders(
+create table funder(
 funderId int primary key generated always as identity,
-funderName varchar(50),
+funderFullName varchar(50),
 funderEmail varchar(50),
 funderPhone varchar(20),
-funderUsername  varchar(30),
+funderName  varchar(30),
 funderPass varchar(50));
 
 CREATE TABLE founder (

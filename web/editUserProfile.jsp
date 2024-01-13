@@ -8,10 +8,7 @@
 
 <%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<sql:setDataSource var="myDatasource"
-driver="org.apache.derby.jdbc.ClientDriver"
-url="jdbc:derby://localhost:1527/CFDatabase" user="app"
-password="app"/>
+
 
 <!DOCTYPE html>
 
@@ -76,20 +73,7 @@ password="app"/>
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
                         
-                        <c:set var="name" value="${param.name}"/>
-                        <c:set var="id" value="${param.id}"/>
-                        <c:set var="email" value="${param.email}"/>
-                        <c:set var="phone_number" value="${param.phone_number}"/>
-
-                        <c:if test="${(id!=null)&&(name!=null)&&(email!=null)&&(phone_number!=null)}" var="result">
-                            <sql:update var="res" dataSource="${myDatasource}">
-                                UPDATE FUNDER SET NAME = ?, EMAIL = ?, PHONE_NUMBER = ? WHERE ID = ?
-                                <sql:param value="${name}"/>
-                                <sql:param value="${email}"/>
-                                <sql:param value="${phone_number}"/>
-                                <sql:param value="${id}"/>
-                            </sql:update> 
-                        </c:if>
+                        
                     
                         <form action="editUserProfile.jsp" method="POST">
                             <table border="1">
@@ -103,14 +87,6 @@ password="app"/>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <sql:query var="result" dataSource="${myDatasource}">
-                                        SELECT ID FROM FUNDER
-                                        </sql:query>
-                                        <c:forEach var="row" items="${result.rowsByIndex}">
-                                        <c:forEach var="column" items="${row}">
-                                        <option> <c:out value="${column}"/></option>
-                                        </c:forEach>
-                                        </c:forEach>
                                         
                                         <td><input type="text" name="name" value="" /><br></td>
                                         <td><input type="text" name="email" value="" /><br></td>
