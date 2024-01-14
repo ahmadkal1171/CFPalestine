@@ -106,7 +106,7 @@
               <h3>Emergency Fund: Merdeka Al Aqsa</h3>
               <h1 class="counter" data-count="9000"></h1><br>
               <p>Fund to help victims in the country and abroad. This current fund will be used to help with treatment costs, food packs, emergency kits, bread and other necessary needs.</p>
-              <button><a href="createFund.html">See More</a></button>
+              <button><a href="CreateFundServlet">See More</a></button>
             </div>
             <div class="card">
               <img src="images/7.png">

@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="listFund.jsp">
+                        <a href="ListFundServlet">
                             <i class="fas fa-list"></i>
                             <span class="nav-item">List Fund</span>
                         </a>
