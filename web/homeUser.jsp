@@ -75,7 +75,7 @@
           </div>
             <div class="home">
                  <% 
-                String fundername = request.getParameter("funderusername");
+                String funderusername = request.getParameter("funderusername");
                 out.println("<h1 align=center>"+"WELCOME "+ funderusername + " " + "TO CROWDFUNDER"+ "</h1>");
                 %>
         
