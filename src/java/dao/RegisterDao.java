@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import util.DBConnection;
 
 /**
@@ -17,8 +16,10 @@ public class RegisterDao {
 
     public String registerUser(RegisterBean registerBean) {
         String fundername = registerBean.getFundername();
+        String funderemail = registerBean.getFunderemail();
+        String funderphone = registerBean.getFunderphone();
+        String funderusername = registerBean.getFunderusername();
         String funderpass = registerBean.getFunderpass();
-        String funderemail = registerBean.setFunderemail();
 
         Connection con = null;
         PreparedStatement pstmtCheck = null;
@@ -29,8 +30,9 @@ public class RegisterDao {
             con = DBConnection.createConnection(); // call from dbconnection class
 
             // Check if username or email already exists
-            pstmtCheck = con.prepareStatement("SELECT COUNT(*) FROM USERS WHERE fundername = ? OR funderemail = ?");
-            pstmtCheck.setString(1, fundername);
+            pstmtCheck = con.prepareStatement("SELECT COUNT(*) "
+                                            + " FROM FUNDERS WHERE funderusername = ? OR funderemail = ?");
+            pstmtCheck.setString(1, funderusername);
             pstmtCheck.setString(2, funderemail);
 
             resultSet = pstmtCheck.executeQuery();
@@ -40,10 +42,13 @@ public class RegisterDao {
             }
 
             // If not duplicate, proceed with insertion
-            pstmtInsert = con.prepareStatement("INSERT INTO USERS (fundername, funderpass, funderemail) VALUES (?, ?, ?)");
-            pstmtInsert.setString(1, fundername);
-            pstmtInsert.setString(2, funderpass);
-            pstmtInsert.setString(4, funderemail);
+            pstmtInsert = con.prepareStatement("INSERT INTO FUNDERS (fundername, funderemail, funderphone, funderusername, funderpass)"
+                                             + "VALUES (?, ?, ?, ?, ?)");
+            pstmtInsert.setString(1, funderusername);
+            pstmtInsert.setString(2, funderemail);
+            pstmtInsert.setString(3, funderphone);
+            pstmtInsert.setString(4, funderusername);
+            pstmtInsert.setString(5, funderpass);
 
             pstmtInsert.executeUpdate();
             con.close();
@@ -73,4 +78,3 @@ public class RegisterDao {
         return "FAILED.";
     }
 }
-

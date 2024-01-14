@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -77,6 +78,9 @@ public class LoginFunderServlet extends HttpServlet {
         
         if (userValidate.equals("SUCCESS")) {
                 // If authentication is successful, forward to the Home.jsp page
+                int userID = lad.getUserId();
+                HttpSession session = request.getSession();
+                session.setAttribute("userID", userID);
                 request.setAttribute("funderusername", funderusername);
                 request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
             } else {

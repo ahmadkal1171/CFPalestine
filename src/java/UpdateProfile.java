@@ -4,13 +4,10 @@
  * and open the template in the editor.
  */
 
-import bean.ListFundAdmin;
-import dao.ListAdminDao;
+import bean.UserBean;
+import dao.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Haikal
  */
-public class AddProjectServlet extends HttpServlet {
+public class UpdateProfile extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,24 +33,27 @@ public class AddProjectServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String projName=request.getParameter("projName");
-            String projDesc=request.getParameter("projDesc");
-            String dateline=request.getParameter("dateline");
+            int id = Integer.parseInt(request.getParameter("id"));
+            String username = request.getParameter("username");
+            String email = request.getParameter("email");
+            String phone = request.getParameter("phone");
             
-     
-            ListFundAdmin lfa = new ListFundAdmin(0,projName,dateline,projDesc);
-            ListAdminDao lad= new ListAdminDao();
+            UserBean ub=new UserBean(id,username,email,phone);
             
-            String addProj=lad.addProject(lfa);
-            if (addProj.equals("SUCCESS")) {
+            UserDao ud=new UserDao();
+            
+            String update=ud.editUser(ub);
+            
+            if (update.equals("SUCCESS")) {
                 //login page
-                request.setAttribute("successMessage", "PROJECT HAS BEEN ADD SUCCESSFULLY");
-                request.getRequestDispatcher("/listFundAdmin.jsp").forward(request, response);
+                request.setAttribute("successMessage", "USER DETAILS HAS BEEN UPDATE SUCCESSFULLY");
+                request.getRequestDispatcher("UserSevlet").forward(request, response);
             }
 
             //register fail
-            request.setAttribute("errorMessage", addProj);
+            request.setAttribute("errorMessage", update);
             request.getRequestDispatcher("/editList.jsp").forward(request, response);
+            
             
         }
     }
