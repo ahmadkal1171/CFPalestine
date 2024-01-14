@@ -22,7 +22,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registration Page</title>
-        
+        <link rel="stylesheet" href="css/register.css">
         <style>
         .errorMessage {
             color: red;
