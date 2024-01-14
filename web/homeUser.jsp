@@ -50,14 +50,14 @@
                     <span class="nav-item">List Fund</span>
                 </a>
             </li>
-            <li>
+<!--            <li>
                 <a href="contactUser.html">
                     <i class="fas fa-comment"></i>
                     <span class="nav-item">Contact</span>
                 </a>
-            </li>
+            </li>-->
             <li>
-                <a href="#" class="logout">
+                <a href="loginUser.jsp" class="logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="nav-item">Log out</span>
                 </a>
