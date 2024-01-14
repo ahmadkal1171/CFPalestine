@@ -13,6 +13,12 @@ public class homeBean implements java.io.Serializable{
     public homeBean() {
     }
 
+    public homeBean(String projectname, String projectdescription, String deadline) {
+        this.projectname = projectname;
+        this.projectdescription = projectdescription;
+        this.deadline = deadline;
+    }
+    
     public String getProjectname() {
         return projectname;
     }
