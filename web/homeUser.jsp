@@ -23,7 +23,7 @@
               <ul>
                   <li>
                       <a class="logo">
-                          <img src="images/Logo.png" style="height: 40%;">
+                          <img src="images/logo.png" style="height: 40%;">
                           <span class="nav-item">Donators</span>
                       </a>
                   </li>
@@ -34,7 +34,7 @@
                       </a>
                   </li>
                   <li>
-                      <a href="dashboardUser.html">
+                      <a href="dashboardUser.jsp">
                           <i class="fas fa-database"></i>
                           <span class="nav-item">Dashboard</span>
                       </a>
@@ -49,12 +49,6 @@
                       <a href="ListFundServlet">
                           <i class="fas fa-list"></i>
                           <span class="nav-item">List Fund</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="contactUser.html">
-                          <i class="fas fa-comment"></i>
-                          <span class="nav-item">Contact</span>
                       </a>
                   </li>
                   <li>
