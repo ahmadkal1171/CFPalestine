@@ -54,10 +54,8 @@
 
       </div>          
         <footer class="site-footer">
-                
-                  <h6>Crowd Funding</h6>
-                  <p class="text-justify">Empower dreams, fund possibilities. Together, we build the future through the collective strength of the crowd.</p>
-      
+            <h6>Crowd Funding</h6>
+            <p class="text-justify">Empower dreams, fund possibilities. Together, we build the future through the collective strength of the crowd.</p>
                 
             <div class="container">
               <div class="row">
@@ -76,6 +74,6 @@
                 </div>
               </div>
             </div>
-      </footer>
+        </footer>
     </body>
 </html>

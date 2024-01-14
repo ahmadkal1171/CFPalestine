@@ -26,6 +26,10 @@ public class ListFund implements java.io.Serializable{
         this.title = title;
     }
 
+    public ListFund(String fundIdDB, LocalDate dateDB, String titleDB) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getFunderId() {
         return funderId;
     }
@@ -55,16 +59,6 @@ public class ListFund implements java.io.Serializable{
         return "ListFund{" + "funderId=" + funderId + ", dateHistory=" + dateHistory + ", title=" + title + '}';
     }
 
-//    public interface listFund {
-//        List<listFund> getListFund() throws SQLException;
-//
-//        public void setDateHistory(LocalDate toLocalDate);
-//
-//        public void setFunderId(int aInt);
-//
-//        public void setTitle(String string);
-//    }
-    
     public interface listFundDAO {
 
     }
