@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +7,6 @@ import bean.RegisterBean;
 import dao.RegisterDao;
 import java.util.LinkedList;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
 /**
  *
  * @author Haikal
@@ -65,26 +57,34 @@ public class RegisterServlet extends HttpServlet {
         List errorMsgs = new LinkedList();
         
         String fundername = request.getParameter("fundername");
-        String funderpass = request.getParameter("funderpass");
-        String confirmpassword = request.getParameter("confirmpassword");
         String funderemail = request.getParameter("funderemail");
+        String funderphone = request.getParameter("funderphone");
+        String funderusername = request.getParameter("funderusername");
+        String funderpass = request.getParameter("funderpass");
+        
         
         RegisterBean rb = new RegisterBean();
         rb.setFundername(fundername);
-        rb.setFunderpass(funderpass);
         rb.setFunderemail(funderemail);
+        rb.setFunderphone(funderphone);
+        rb.setFunderusername(funderusername);
+        rb.setFunderpass(funderpass);
 
+
+        if ((fundername == null) || fundername.length() == 0) {
+            errorMsgs.add("Please enter your name");
+        }
         if ((funderemail == null) || funderemail.length() == 0) {
             errorMsgs.add("Please enter your email");
         }
-        if ((fundername == null) || fundername.length() == 0) {
+        if ((funderphone == null) || funderphone.length() == 0) {
+            errorMsgs.add("Please enter your phone");
+        }
+        if ((funderusername == null) || funderusername.length() == 0) {
             errorMsgs.add("Please enter your username");
         }
         if ((funderpass == null) || funderpass.length() == 0) {
             errorMsgs.add("Please enter your password");
-        }
-        if ((confirmpassword == null) || confirmpassword.length() == 0) {
-            errorMsgs.add("Please confirm your password");
         }
 
         if (errorMsgs.isEmpty()) {
@@ -92,7 +92,7 @@ public class RegisterServlet extends HttpServlet {
             String statusRegister = rd.registerUser(rb);
 
             if (statusRegister.equals("SUCCESS")) {
-                request.setAttribute("fundername", fundername);
+                request.setAttribute("funderusername", funderusername);
                 request.setAttribute("errMessage", "You have sign up successfully.");
                 request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
             } else {
@@ -114,5 +114,4 @@ public class RegisterServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
