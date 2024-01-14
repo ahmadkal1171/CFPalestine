@@ -2,14 +2,10 @@ package bean;
 
 public class RegisterBean implements java.io.Serializable{
     String fundername;
-    String funderpass;
     String funderemail;
-
-    public RegisterBean(String fundername, String funderpass, String funderemail) {
-        this.fundername = fundername;
-        this.funderpass = funderpass;
-        this.funderemail = funderemail;
-    }
+    String funderphone;
+    String funderusername;
+    String funderpass;
 
     public RegisterBean() {
     }
@@ -22,23 +18,35 @@ public class RegisterBean implements java.io.Serializable{
         this.fundername = fundername;
     }
 
-    public String getFunderpass() {
-        return funderpass;
-    }
-
-    public void setFunderpass(String funderpass) {
-        this.funderpass = funderpass;
-    }
-
-    public String setFunderemail() {
+    public String getFunderemail() {
         return funderemail;
     }
 
     public void setFunderemail(String funderemail) {
         this.funderemail = funderemail;
     }
-    
-    
-    
-    
+
+    public String getFunderphone() {
+        return funderphone;
+    }
+
+    public void setFunderphone(String funderphone) {
+        this.funderphone = funderphone;
+    }
+
+    public String getFunderusername() {
+        return funderusername;
+    }
+
+    public void setFunderusername(String funderusername) {
+        this.funderusername = funderusername;
+    }
+
+    public String getFunderpass() {
+        return funderpass;
+    }
+
+    public void setFunderpass(String funderpass) {
+        this.funderpass = funderpass;
+    } 
 }
