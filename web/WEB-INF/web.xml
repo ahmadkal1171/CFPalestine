@@ -40,6 +40,10 @@
         <servlet-name>UserServlet</servlet-name>
         <servlet-class>UserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditProjectServlet</servlet-name>
+        <servlet-class>EditProjectServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/UserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProjectServlet</servlet-name>
+        <url-pattern>/EditProjectServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

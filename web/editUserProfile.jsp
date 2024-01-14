@@ -75,7 +75,6 @@
                             <table border="1">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone Number</th>
@@ -84,14 +83,10 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <%
-                                            UserBean user = (UserBean) request.getAttribute("user");
-                                        %>
-                                        
-                                        <td><input type="hidden" name="id" value="<%= user.getId() %>" /><br></td>
-                                        <td><input type="text" name="name" value="<%= user.getName() %>" /><br></td>
-                                        <td><input type="text" name="email" value="<%= user.getEmail() %>" /><br></td>
-                                        <td><input type="text" name="phoneNum" value=<%= user.getNumPhone()%>"" /><br></td>
+                                        <td><input type="hidden" name="id" value="" /><br></td>
+                                        <td><input type="text" name="name" value="" /><br></td>
+                                        <td><input type="text" name="email" value="" /><br></td>
+                                        <td><input type="text" name="phoneNum" value="" /><br></td>
                                         <td><input type="submit" value="Save Edit" /></td>
                                     </tr>
                                 </tbody>

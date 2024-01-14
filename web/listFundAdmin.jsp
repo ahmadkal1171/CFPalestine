@@ -24,7 +24,7 @@
                         </li>
                         <li style="padding: 10px 5px;border-radius: 10px 10px;background-color:#515050;"><a style="color: #3366cc;" href="homeAdmin.jsp">Home</a></li>
                         <li><a href="ListFundAdminServlet">Dashboard</a></li>
-                        <li><a href="AddProjectServlet">Customize Project</a></li> 
+                        <li><a href="ListFundAdminServlet">Customize Project</a></li> 
                         <li><a href="AdminServlet">Profile</a></li>
                         
                         
@@ -62,8 +62,11 @@
                 </tbody>
             </table>
         </form>
+        
+        
                
         List of the project
+        <br><br>
             <%
                 List categoryList = (List) request.getAttribute("projectList");
                 if (categoryList != null) {
@@ -71,14 +74,41 @@
                     while (categorys.hasNext()) {
                         ListFundAdmin category = (ListFundAdmin) categorys.next();       
             %>   
+                <form action="EditProjectServlet" method="POST">
+            <table border="0">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>Project Name</td>
+                            <input type="hidden" name="projId" value="<%= category.getProjId() %>">
+                            <td><input type="text" name="projName" value="<%=category.getProjName()%>"/></td>
+                        </tr>
+                        <tr>
+                            <td>Project Description</td>
+                            <td><input type="text" name="projDesc" value="<%=category.getProjDesc()%>"/></td>
+                        </tr>
+                        <tr>
+                            <td>Dateline (YYYY-MM-DD)</td>
+                            <td><input type="text" name="dateline" value="<%=category.getDateline()%>"/></td>
+                        </tr>
+                        <tr>
+                            <td><input type="submit" value="Edit Project" /></td>
+                            <td><input type="reset" value="Reset" /></td>
+                        </tr>
 
-                <p>Name of the project : <%=category.getProjName()%> <br> <%=category.getProjDesc()%>
-                    <br>(Project Id : <%=category.getProjId()%>)</p><br>
-                Project deadline<%=category.getDateline()%>
+                    </tbody>
+                </table>
+            </form>
+                
                 
                 <form action="DeleteProjectServlet" method="post">
                     <input type="hidden" name="projId" value="<%= category.getProjId() %>">
-                    <input type="submit" value="Delete Project">
+                    <input type="submit" value="Delete Project"><br><br>
                 </form>
             <%
                     }

@@ -39,13 +39,13 @@
                 </a>
             </li>
             <li>
-                <a href="profile-user.html">
+                <a href="UserServlet">
                     <i class="fas fa-user"></i>
                     <span class="nav-item">Profile</span>
                 </a>
             </li>
             <li>
-                <a href="listFund.html">
+                <a href="ListFundServlet">
                     <i class="fas fa-list"></i>
                     <span class="nav-item">List Fund</span>
                 </a>
