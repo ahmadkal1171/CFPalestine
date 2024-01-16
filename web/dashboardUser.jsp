@@ -79,14 +79,29 @@
                         <th  style="text-align: center;">Amount (RM)</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>Sam David</td>
-                        <td>03-24-22</td>
-                        <td style="text-align: center;">5.00</td>
-                    </tr>
-                  </tbody>
+                  <%
+                            List categoryList = (List) request.getAttribute("projectList");
+                            if (categoryList != null) {
+                                Iterator categorys = categoryList.iterator();
+                                while (categorys.hasNext()) {
+                                    ListFundAdmin category = (ListFundAdmin) categorys.next();       
+                        %>   
+                            <tbody>
+                                <tr>
+                                    <td><%=category.getProjId()%></td>
+                                    <td><%=category.getDateline()%></td>
+                                    <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
+                                    <td>
+                                        <button class="create-fund">
+                                            <a href="payment.jsp">See More</a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        <%
+                    }
+                }
+            %>
                 </table>
               </div>
             </section>
