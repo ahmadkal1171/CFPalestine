@@ -69,7 +69,7 @@
         
             <section class="attendance">
               <div class="attendance-list">
-                <h1>History</h1>
+                  <h1><center>Dashboard</center></h1>
                 <table class="table">
                   <thead>
                     <tr>
@@ -77,7 +77,6 @@
                         <th>Name</th>
                         <th>Date</th>              
                         <th  style="text-align: center;">Amount (RM)</th>
-                        <th>Time</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -86,65 +85,7 @@
                         <td>Sam David</td>
                         <td>03-24-22</td>
                         <td style="text-align: center;">5.00</td>
-                        <td>5:31PM</td>
                     </tr>
-                    <tr class="active">
-                        <td>02</td>
-                        <td>Muhammad Haziq</td>
-                        <td>03-24-22</td>
-                        <td style="text-align: center;">35.00</td>
-                        <td>6:34AM</td>
-                    </tr>
-                    <tr>
-                        <td>03</td>
-                        <td>Badan John</td>
-                        <td>03-24-22</td>
-                        <td style="text-align: center;">15.00</td>
-                        <td>9.00PM</td>
-                    </tr>
-                    <tr>
-                        <td>04</td>
-                        <td>Sara Macwilson</td>
-                        <td>03-24-22</td>
-                        <td style="text-align: center;">50.00</td>
-                        <td>9:00AM</td>
-                    </tr>
-                    <tr>
-                        <td>05</td>
-                        <td>Kairi</td>
-                        <td>03-24-22</td>
-                        <td style="text-align: center;">5.00</td>
-                        <td>9:41AM</td>
-                    </tr>
-                    <tr>
-                        <td>06</td>
-                        <td>Celiboy</td>
-                        <td>03-24-22</td>
-                        <td style="text-align: center;">1.00</td>
-                        <td>8:05PM</td>
-                    </tr>
-                    <tr>
-                        <td>07</td>
-                        <td>Ahmad Syafiq</td>
-                        <td>03-25-22</td>
-                        <td style="text-align: center;">20.00</td>
-                        <td>5:31PM</td>
-                    </tr>
-                    <tr>
-                        <td>08</td>
-                        <td>Muhammad Muqsit bin Ali</td>
-                        <td>03-27-22</td>
-                        <td style="text-align: center;">30.00</td>
-                        <td>6:34PM</td>
-                    </tr>
-                    <tr>
-                        <td>09</td>
-                        <td>Melissa</td>
-                        <td>03-28-22</td>
-                        <td style="text-align: center;">100.00</td>
-                        <td>3.42PM</td>
-                    </tr>
-                    <tr>
                   </tbody>
                 </table>
               </div>
