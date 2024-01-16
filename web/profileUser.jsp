@@ -19,12 +19,12 @@
         <div class="container">
             <nav>
                 <ul>
+                    <a href="ListFundServlet" class="logo">
+                      <img src="images/logo.png" style="height: 40%;">
+                      <span class="nav-item">Donators</span>
+                  </a>
                     <li>
-                        <img src="images/logo.png" style="height: 40%;">
-                        <span class="nav-item">Donators</span>
-                    </li>
-                    <li>
-                        <a href="homeUser.jsp">
+                        <a href="ListFundServlet">
                             <i class="fas fa-home"></i>
                             <span class="nav-item" >Home</span>
                         </a>
@@ -42,13 +42,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="ListFundServlet">
-                            <i class="fas fa-list"></i>
-                            <span class="nav-item">List Fund</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="logout">
+                        <a href="loginUser.jsp" class="logout">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="nav-item">Log out</span>
                         </a>
