@@ -19,38 +19,41 @@ import java.util.*;
  * @author Haikal
  */
 public class ListAdminDao {
-//    public ListFundAdmin getProjectById(String id){      
-//        Connection con = null;
-//        Statement statement = null;
-//        ResultSet resultSet = null;
-//        String sql = "";
-//        String categoryIdDB = "";
-//        String categoryNameDB = "";
-//        float priceDB = 0;
-//        
-//        try {
-//            con = DBConnection.createConnection();
-//            statement = con.createStatement();
-//
-//            sql = "select * from category where category_id="+id;
-//
-//            resultSet = statement.executeQuery(sql);
-//
-//             while (resultSet.next()) {
-//                categoryIdDB = resultSet.getString("category_id");
-//                categoryNameDB = resultSet.getString("categoryName");
-//                priceDB = resultSet.getFloat("price");
-//                
-//                CategoryBean Category = new CategoryBean(categoryIdDB,categoryNameDB,priceDB);
-//                return Category;
-//             }
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//        
-//        return null;
-//    }
+    public ListFundAdmin getProjectById(int id){      
+        Connection con = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        String sql = "";
+        int projIdDB = 0;
+        String projNameDB = "";
+        String projDescDB = "";
+        String dateDB = null;
+        
+        
+        try {
+            con = DBConnection.createConnection();
+            statement = con.createStatement();
+
+            sql = "select * from project where projectId="+id;
+
+            resultSet = statement.executeQuery(sql);
+
+             while (resultSet.next()) {
+                projIdDB = resultSet.getInt("projectId");
+                projNameDB = resultSet.getString("projectName");
+                dateDB = resultSet.getString("deadline");
+                projDescDB = resultSet.getString("projectDescription");
+                
+                ListFundAdmin lfa = new ListFundAdmin(projIdDB,projNameDB,dateDB,projDescDB);
+                return lfa;
+             }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return null;
+    }
     
     public List<ListFundAdmin> getAllProject(){
         

@@ -33,6 +33,7 @@
         
     </head>
     <body>
+        <div class="form sign-in">
         <h1>User Registration</h1>
         <form action="RegisterServlet" method="POST">
         <table border="0" cellspacing="4" cellpadding="4">
@@ -68,5 +69,6 @@
             </tbody>
         </table>
         </form>
+        </div>
     </body>
 </html>
