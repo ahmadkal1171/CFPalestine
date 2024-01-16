@@ -45,7 +45,7 @@
                   </a>
               </li>
               <li>
-                  <a href="dashboardUser.jsp">
+                  <a href="ListFundServlet">
                       <i class="fas fa-database"></i>
                       <span class="nav-item">Dashboard</span>
                   </a>

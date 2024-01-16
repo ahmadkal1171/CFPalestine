@@ -93,17 +93,18 @@ public class DashboardUserDao {
             ex.printStackTrace();
         }
         
-        finally {
-            // Close resources in reverse order of creation
-            try {
-                if (resultSet != null) resultSet.close();
-                if (statement != null) statement.close();
-                if (con != null) con.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-            return projList;
-        }
+//        finally {
+//            // Close resources in reverse order of creation
+//            try {
+//                if (resultSet != null) resultSet.close();
+//                if (statement != null) statement.close();
+//                if (con != null) con.close();
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//
+//            
+//        }
+        return projList;
     }
 }

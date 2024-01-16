@@ -27,10 +27,12 @@
 
         <nav>
                 <ul>
-                    <a href="ListFundServlet" class="logo">
-                      <img src="images/logo.png" style="height: 40%;">
-                      <span class="nav-item">Donators</span>
-                  </a>
+                    <li>
+                        <a class="logo">
+                          <img src="images/logo.png" style="height: 40%;">
+                          <span class="nav-item">Crowd<br>Funding</span>
+                        </a>
+                    </li>
                     <li>
                         <a href="ListFundServlet">
                             <i class="fas fa-home"></i>

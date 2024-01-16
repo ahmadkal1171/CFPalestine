@@ -114,7 +114,7 @@
                 <!-- Site footer -->
                 <section class="footer">
                     <footer>
-                        <p class="text-center">Copyright &copy; Crowd Funding</p>
+                        <p class="text-center">Copyright &copy; FundingHelp.com</p>
                     </footer>
                 </section>
             </section>
