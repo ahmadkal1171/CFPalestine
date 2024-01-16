@@ -70,7 +70,7 @@
                             </label>
                             <label>
                                 <span>Email Address :</span>
-                                <input type="password" name="funderemail" value=""><br>
+                                <input type="text" name="funderemail" value=""><br>
                             </label>
                             <label>
                                 <span>Enter Amount (RM):</span>

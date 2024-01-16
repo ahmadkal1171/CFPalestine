@@ -52,6 +52,10 @@
         <servlet-name>HomeAdminServlet</servlet-name>
         <servlet-class>HomeAdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>paymentServlet</servlet-name>
+        <servlet-class>paymentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>HomeAdminServlet</servlet-name>
         <url-pattern>/HomeAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>paymentServlet</servlet-name>
+        <url-pattern>/paymentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
