@@ -70,7 +70,7 @@
         
             <section class="attendance">
               <div class="attendance-list">
-                  <h1><center>Dashboard</center></h1>
+                  <h1><center>DASHBOARD</center></h1>
                 <table class="table">
                   <thead>
                     <tr>

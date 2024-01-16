@@ -22,9 +22,9 @@ public class DashboardUserBean implements java.io.Serializable{
         this.projectid = projectid;
     }
 
-    public DashboardUserBean(int funderIdDB, String fundernameDB, String fundingamountDB, String fundingdateDB, int projIdDB) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public DashboardUserBean(int funderIdDB, String fundernameDB, String fundingamountDB, String fundingdateDB, int projIdDB) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     public String getFunderid() {
         return funderid;

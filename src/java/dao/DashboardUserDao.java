@@ -34,7 +34,7 @@ public class DashboardUserDao {
         try {
             con = DBConnection.createConnection();
             statement = con.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM DONATE JOIN FUNDERS");
+            resultSet = statement.executeQuery("SELECT FUNDERID, FUNDERNAME, FUNDINGAMOUNT, FUNDINGDATE FROM DONATE JOIN FUNDERS");
 
             while (resultSet.next()){
                 funderidDB = resultSet.getString("funderid");
@@ -74,7 +74,7 @@ public class DashboardUserDao {
             con = DBConnection.createConnection();
             statement = con.createStatement();
 
-            sql = "SELECT * FROM DONATE JOIN FUNDERS";
+            sql = "SELECT FUNDERID, FUNDERNAME, FUNDINGAMOUNT, FUNDINGDATE FROM DONATE JOIN FUNDERS";
 
             resultSet = statement.executeQuery(sql);
 
