@@ -15,7 +15,7 @@
     <html lang="en">
     <head>
       <meta charset="UTF-8" />
-      <title>HOME</title>
+      <title>EDIT PROJECT</title>
       <link rel="stylesheet" href="css/styleFund.css" />
       <!-- Font Awesome Cdn Link -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
@@ -25,13 +25,13 @@
         <nav>
           <ul>
               <li>
-                  <a href="#" class="logo">
+                  <a href="HomeAdminServlet" class="logo">
                       <img src="images/logo.png" style="height: 40%;">
                       <span class="nav-item">Donators</span>
                   </a>
               </li>
               <li>
-                  <a href="homeAdmin.html">
+                  <a href="HomeAdminServlet">
                       <i class="fas fa-home"></i>
                       <span class="nav-item" >Home</span>
                   </a>
@@ -39,7 +39,7 @@
               <li>
                   <a href="ListFundAdminServlet">
                       <i class="fas fa-database"></i>
-                      <span class="nav-item">Project</span>
+                      <span class="nav-item">Edit Project</span>
                   </a>
               </li>
               <li>
@@ -62,14 +62,7 @@
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>PROJECT</h1></center>
-                       <%
-                List categoryList = (List) request.getAttribute("projectList");
-                if (categoryList != null) {
-                    Iterator categorys = categoryList.iterator();
-                    while (categorys.hasNext()) {
-                        ListFundAdmin category = (ListFundAdmin) categorys.next();       
-            %>   
-                        
+                       
                         <table class="table">
                             <thead>
                                 <tr>
@@ -80,6 +73,14 @@
                                     <th><center>CUSTOMIZE</center></th>
                                 </tr>
                             </thead>
+                            <%
+                List categoryList = (List) request.getAttribute("projectList");
+                if (categoryList != null) {
+                    Iterator categorys = categoryList.iterator();
+                    while (categorys.hasNext()) {
+                        ListFundAdmin category = (ListFundAdmin) categorys.next();       
+            %>   
+                        
                             <tbody>
                                 <form action="EditProjectServlet" method="POST">
                                 <tr>
@@ -96,43 +97,19 @@
                                     </center></td>
                                 </tr>
                             </tbody>
-                        </table>
                         <%
                                 }
                             }
                         %>
+                        </table>
+                        <center><form action="addProject.jsp" method="POST">
+                        <input type="submit" value="ADD PROJECT" />
+                        </form>
+                    </center>  
                     </div>
-                </section>
-                                 <b>Add Project</b>
-        <form action="AddProjectServlet" method="POST">
-            <table border="0">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Project Name</td>
-                        <td><input type="text" name="projName" /></td>
-                    </tr>
-                    <tr>
-                        <td>Project Description</td>
-                        <td><input type="text" name="projDesc" /></td>
-                    </tr>
-                    <tr>
-                        <td>Dateline (YYYY-MM-DD)</td>
-                        <td><input type="text" name="dateline" /></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Add Project" /></td>
-                        <td><input type="reset" value="Reset" /></td>
-                    </tr>
                     
-                </tbody>
-            </table>
-        </form>
+                </section>
+                                   
 
                 <!-- Site footer -->
                 <section class="footer">

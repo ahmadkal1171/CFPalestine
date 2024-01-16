@@ -4,21 +4,20 @@
  * and open the template in the editor.
  */
 
-import bean.LoginAdmin;
-import dao.LoginAdminDao;
+import dao.ListAdminDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Haikal
+ * @author Lenovo
  */
-public class LoginServlet extends HttpServlet {
+public class HomeAdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,30 +31,23 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
         try (PrintWriter out = response.getWriter()) {
-            
             /* TODO output your page here. You may use following sample code. */
-            String username=request.getParameter("username");
-            String password=request.getParameter("password");
+            ListAdminDao lad = new  ListAdminDao();
             
-            LoginAdmin lb=new LoginAdmin(username,password);
-            LoginAdminDao ld = new LoginAdminDao();
-            String userValidate=ld.authenticateUser(lb);
+            List projectList=lad.getAllProject();
             
-            if(userValidate.equals("SUCCESS")){
-                int userID = ld.getUserId();
-                HttpSession session = request.getSession();
-                session.setAttribute("userID", userID);
-                request.setAttribute("username",username);
-                request.getRequestDispatcher("HomeAdminServlet").forward(request,response);
+            
+//            out.print(projectList);
+//            return;
+            if(!projectList.isEmpty()){
+                
+                request.setAttribute("projectList",projectList);
+                request.getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
             }
-            else{
-                request.setAttribute("errMsgs",userValidate);
-                request.getRequestDispatcher("/loginAdmin.jsp").forward(request,response);
-            }
+            else
+                request.getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

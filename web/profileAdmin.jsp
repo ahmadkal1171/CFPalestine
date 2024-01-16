@@ -20,13 +20,13 @@
             <nav>
           <ul>
               <li>
-                  <a href="#" class="logo">
+                  <a href="HomeAdminServlet" class="logo">
                       <img src="images/logo.png" style="height: 40%;">
                       <span class="nav-item">Donators</span>
                   </a>
               </li>
               <li>
-                  <a href="homeAdmin.html">
+                  <a href="HomeAdminServlet">
                       <i class="fas fa-home"></i>
                       <span class="nav-item" >Home</span>
                   </a>

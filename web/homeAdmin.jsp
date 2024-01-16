@@ -1,120 +1,139 @@
 <%-- 
-    Document   : homeAdmin
-    Created on : Jan 4, 2024, 10:10:28 PM
+    Document   : listFundAdmin
+    Created on : Jan 13, 2024, 1:52:26 AM
     Author     : Haikal
 --%>
 
+<%@page import="bean.AdminBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="bean.ListFundAdmin"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
 <!DOCTYPE html>
-<span>
-<html>
+<span style="font-family: verdana, geneva, sans-serif;">
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin - Crowd Funding</title>
-        <script src="https://kit.fontawesome.com/108ac02d1f.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="css/styleindex.css">
+      <meta charset="UTF-8" />
+      <title>HOME</title>
+      <link rel="stylesheet" href="css/home.css" />
+      <!-- Font Awesome Cdn Link -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
     <body>
-        <h1>Home page</h1>
-        Welcome ${userID}<br>
-        <a href="LogoutServlet">Logout</a>
-        <header>
-            <img class="logo" src="images/logo.png" href="" alt="logo">
-            <div class="navbar">
-                <nav>
-                    <ul>
-                      <li><form action="/action_page.php">
-                            <input type="text" placeholder=" Search.. " name="search">
-                            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a></form>
-                        </li>
-                        <li style="padding: 10px 5px;border-radius: 10px 10px;background-color:#515050;"><a style="color: #3366cc;" href="homeAdmin.jsp">Home</a></li>
-                        <li><a href="ListFundAdminServlet">Dashboard</a></li>
-                        <li><a href="ListFundAdminServlet">Customize Project</a></li> 
-                        <li><a href="AdminServlet">Profile</a></li>
-                        
-                        
-                        <!-- <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li> -->
-                    </ul>
-                </nav>
-            </div>
-        </header>
-        
-        <div id="projectCollection">
-          <!-- Project 1 -->
-          <div class="project">
-            <a href="">
-              <img src="images/palestine.jpeg">
-              <h2>Project 1: PALESTINE</h2>
-              <ul>
-                  <li><span class="label">Status:</span> In Progress</li>
-                  <li><span class="label">Due Date:</span> December 31, 2023</li>
-                  <li><span class="label">Team Members:</span> John Doe, Jane Smith</li>
-                  <li><span class="label">PROGRESS: </li><div class="progress-bar" id="pb1">90%</div>
-                  
-                  <!-- Add more project details as needed -->
-              </ul></a>
-          </div>
-          <!-- Project 2 -->
-          <div class="project">
-              <a href="">
-                <img src="images/orphan.jpeg">
-              <h2>Project 2: ORPHAN</h2>
-              <ul>
-                  <li><span class="label">Status:</span> Completed</li>
-                  <li><span class="label">Due Date:</span> January 15, 2024</li>
-                  <li><span class="label">Team Members:</span> Alice Johnson, Bob Brown</li>
-                  <li><span class="label">PROGRESS: </li><div class="progress-bar" id="pb2">80%</div>
-                  <!-- Add more project details as needed -->
-              </ul>
-              </a>
-          </div>
-          <script>
-            // Simulate progress (for demonstration purposes)
-            function simulateProgress(progressBarId,x) {
-                var progressBar = document.getElementById(progressBarId);
-                var width = 1;
-                var interval = setInterval(function () {
-                    if (width >= x) {
-                        clearInterval(interval);
-                    } else {
-                        width++;
-                        progressBar.style.width = width + '%';
-                        progressBar.innerHTML = width + '%';
-                    }
-                }, 20); // Adjust the interval for desired speed
-            }
-    
-            // Call the function to simulate progress
-            simulateProgress('pb1',90);
-            simulateProgress('pb2',80);
-        </script>
-  
-          <!-- Add more projects as needed -->
-      </div>          
-        <footer class="site-footer">
-                
-                  <h6>Crowd Funding</h6>
-                  <p class="text-justify">Empower dreams, fund possibilities. Together, we build the future through the collective strength of the crowd.</p>
-      
-                
-            <div class="container">
-              <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                  <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by 
-               <a href="#">CROWD FUNDER MALAYSIA</a>.
-                  </p>
+      <div class="container">
+        <nav>
+          <ul>
+              <li>
+                  <a href="HomeAdminServlet" class="logo">
+                      <img src="images/logo.png" style="height: 40%;">
+                      <span class="nav-item">Donators</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="HomeAdminServlet">
+                      <i class="fas fa-home"></i>
+                      <span class="nav-item" >Home</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="ListFundAdminServlet">
+                      <i class="fas fa-database"></i>
+                      <span class="nav-item">Edit Project</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="AdminServlet">
+                      <i class="fas fa-user"></i>
+                      <span class="nav-item">Profile</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="LogoutServlet" class="logout">
+                      <i class="fas fa-sign-out-alt"></i>
+                      <span class="nav-item">Log out</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+         <section class="main">
+            <div class="home">
+              <section class="parallax-section1" style="background-position: 50% 120px;">
+                <div class="projects-img">
+                  <!-- <div class="card">
+                    <img src="images/1.png">
+                  </div> -->
+                  <div class="row">
+                    <div class="column">
+                      <img src="images/1.png" style="width:100%">
+                    </div>
+                    <div class="column">
+                      <img src="images/4.jpg" style="width:100%">
+                    </div>
+                    <div class="column">
+                      <img src="images/3.jpg" style="width:100%">
+                    </div>
+                  </div>
                 </div>
-      
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <ul class="social-icons">
-                    <li><a class="facebook" href="https://www.facebook.com/artaniscloud/?_rdc=1&_rdr"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="twitter" href="https://twitter.com/ArtanisCloud"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="linkedin" href="https://www.linkedin.com/company/artaniscloud/"><i class="fa fa-linkedin"></i></a></li>   
-                  </ul>
-                </div>
-              </div>
+              </section>
+              
             </div>
-      </footer>
+
+          
+             <section class="main">
+                <section class="fundL">
+                    <div class="fund-list">
+                        <center><h1>PROJECT LIST</h1></center>
+                       
+                        
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><center>PROJECT ID</center></th>
+                                    <th><center>PROJECT NAME</center></th>
+                                    <th><center>PROJECT DESC</center></th>
+                                    <th><center>DATELINE</center></th>
+                                </tr>
+                            </thead>
+                                            <%
+                List categoryList = (List) request.getAttribute("projectList");
+                if (categoryList != null) {
+                    Iterator categorys = categoryList.iterator();
+                    while (categorys.hasNext()) {
+                        ListFundAdmin category = (ListFundAdmin) categorys.next();       
+            %>   
+                            <tbody>
+                
+                                <tr>
+
+                                    <td class="col-2"><center><%= category.getProjId() %></center></td>
+                                    <td class="col-2"><center><%=category.getProjName()%></center></td>
+                                    <td class="col-2"><center><%=category.getProjDesc()%></center></td>
+                                    <td class="col-2"><center><%=category.getDateline()%></center></td>
+                                </tr>
+                            </tbody>
+                            <%
+                                }
+                            }
+                        %>
+                        </table>
+                        <center><form action="ListFundAdminServlet" method="POST">
+                        <input type="submit" value="EDIT PROJECT" />
+                        </form>
+                    </center>  
+                    </div>
+                    
+                </section>
+                                   
+
+                <!-- Site footer -->
+                <section class="footer">
+                    <footer>
+                        <p class="text-center">Copyright &copy; Crowd Funding</p>
+                    </footer>
+                </section>
+            </section>
+        </div>
     </body>
 </html>
-</span>
