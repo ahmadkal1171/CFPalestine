@@ -38,14 +38,16 @@
             </label>
                 <input type="submit" value="Sign In" class="submit"/>
             </form>
+            <button class="create-fund">
+                    <a href="loginUser.jsp">User Sign In</a>
+                </button>
         </div>
             <div class="sub-cont">
             <div class="img">
                 <div class="img__text m--up">
                     <h3>WELCOME ADMIN!!!!<h3>
                 </div>
-            </div>
-        
+            </div>        
       </div>
     </body>
 </html>
