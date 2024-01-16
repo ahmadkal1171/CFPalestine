@@ -61,13 +61,13 @@
             </nav>
     
         <section class="main">
-          <div class="main-top">
+<!--          <div class="main-top">
             <i class="fas fa-user-cog"></i>
-          </div>
+          </div>-->
             <div class="home">
-                 <% 
-                String funderusername = request.getParameter("funderusername");
-                out.println("<h1 align=center>"+"WELCOME "+ funderusername + " " + "TO CROWDFUNDER"+ "</h1>");
+                <% 
+//                    String funderusername = request.getParameter("funderusername");
+                    out.println("<h1 align=center>"+"WELCOME TO CROWD FUNDING"+ "</h1>");
                 %>
         
               <!--<h1 class="box_verticalPaddedHalf">WELCOME TO CROWDFUNDER</h1>-->
