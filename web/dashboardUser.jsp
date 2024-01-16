@@ -39,13 +39,13 @@
                   </a>
               </li>
               <li>
-                  <a href="homeUser.jsp">
+                  <a href="ListFundServlet">
                       <i class="fas fa-home"></i>
                       <span class="nav-item">Home</span>
                   </a>
               </li>
               <li>
-                  <a href="ListFundServlet">
+                    <a href="DashboardUserServlet">
                       <i class="fas fa-database"></i>
                       <span class="nav-item">Dashboard</span>
                   </a>
