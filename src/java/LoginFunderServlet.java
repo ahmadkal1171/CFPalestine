@@ -82,7 +82,7 @@ public class LoginFunderServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("userID", userID);
                 request.setAttribute("funderusername", funderusername);
-                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
+                request.getRequestDispatcher("/ListFundServlet").forward(request, response);
             } else {
                 // If authentication fails, display an error message and forward to the Login.jsp page
                 request.setAttribute("errMessage", userValidate);
