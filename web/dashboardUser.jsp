@@ -1,4 +1,5 @@
 
+<%@page import="bean.DashboardUserBean"%>
 <%-- 
     Document   : dashboard
     Created on : Jan 16, 2024, 8:25:54 PM
@@ -76,7 +77,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Date</th>              
-                        <th  style="text-align: center;">Amount (RM)</th>
+                        <th style="text-align: center;">Amount (RM)</th>
                     </tr>
                   </thead>
                   <%
@@ -84,18 +85,14 @@
                             if (categoryList != null) {
                                 Iterator categorys = categoryList.iterator();
                                 while (categorys.hasNext()) {
-                                    ListFundAdmin category = (ListFundAdmin) categorys.next();       
+                                    DashboardUserBean category = (DashboardUserBean) categorys.next();       
                         %>   
                             <tbody>
                                 <tr>
-                                    <td><%=category.getProjId()%></td>
-                                    <td><%=category.getDateline()%></td>
-                                    <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
-                                    <td>
-                                        <button class="create-fund">
-                                            <a href="payment.jsp">See More</a>
-                                        </button>
-                                    </td>
+                                    <td><%=category.getFunderid()%></td>
+                                    <td><%=category.getFunderName()%></td>
+                                    <td><%=category.getFundingdate()%></td>
+                                    <td><%=category.getFundingamount()%></td>
                                 </tr>
                             </tbody>
                         <%
