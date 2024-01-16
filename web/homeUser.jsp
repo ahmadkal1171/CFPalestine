@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="dashboardUser.jsp">
+                        <a href="DashboardUserServlet">
                             <i class="fas fa-database"></i>
                             <span class="nav-item">Dashboard</span>
                         </a>
