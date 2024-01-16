@@ -63,8 +63,7 @@
                     <td><input type="password" name="confirmpassword" value="" /></td>
                 </tr>
                 <tr>
-                     <td><input type="submit" value="Confirm Registration"/></td>
-                     <td><input type="reset" value="Reset"/></td>
+                     <td><input type="submit" value="Sign In" class="submit"/></td>
                 </tr>
             </tbody>
         </table>

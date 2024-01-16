@@ -97,11 +97,11 @@ public class RegisterServlet extends HttpServlet {
                 request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
             } else {
                 request.setAttribute("errorMsgs", statusRegister);
-                request.getRequestDispatcher("/registerUser.jsp").forward(request, response);
+                request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
             }
         } else {
             request.setAttribute("errorMsgs", errorMsgs);
-            request.getRequestDispatcher("/registerUser.jsp").forward(request, response);
+            request.getRequestDispatcher("/loginUser.jsp").forward(request, response);
         }
    }
 

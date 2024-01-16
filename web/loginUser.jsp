@@ -36,8 +36,15 @@
                 <span>Password</span>
                 <input type="password" name="funderpass" value="">
             </label>
-            <p class="forgot-pass">Forgot password?</p>
+<!--            <p class="forgot-pass">Forgot password?</p>-->
                 <input type="submit" value="Sign In" class="submit"/>
+                <br>
+                <button class="create-fund">
+                    <a href="loginAdmin.jsp">Admin Sign In</a>
+                </button>
+                
+
+
             </form>
         </div>
         <div class="sub-cont">
@@ -76,13 +83,7 @@
                     <span>Password</span>
                     <input type="password" name="funderpass" value="" />
                 </label>
-                <label>
-                    <span>Confirm Password</span>
-                    <input type="password" name="confirmpassword" value="" />
-                </label>
-                
-                <input type="submit" value="Sign Up"/>
-                <input type="reset" value="Reset"/>
+                <input type="submit" value="Sign Up" class="submit"/>
                 
                 </form>
             </div>
@@ -92,6 +93,12 @@
         document.querySelector('.img__btn').addEventListener('click', function() {
             document.querySelector('.cont').classList.toggle('s--signup');
         });
+    </script>
+    
+    <script type="text/javascript">
+    document.getElementById("adminLogin").onclick = function () {
+        location.href = "loginAdmin.jsp";
+    };
     </script>
         
     </body>
