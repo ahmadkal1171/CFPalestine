@@ -102,8 +102,6 @@ public class DashboardUserDao {
 //            } catch (SQLException e) {
 //                e.printStackTrace();
 //            }
-//
-//            
 //        }
         return projList;
     }
