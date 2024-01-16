@@ -49,7 +49,9 @@
                     <h3>If you already has an account, just sign in.<h3>
                 </div>
                 <div class="img__btn">
-                    <span class="m--up">Sign Up</span>
+                    <button class="sign-up">
+                        <a href="registerUser.jsp" target="blank">Sign Up</a>
+                    </button>
                     <span class="m--in">Sign In</span>
                 </div>
             </div>
@@ -88,11 +90,5 @@
             </div>-->
         </div>
       </div>   
-    <script>
-        document.querySelector('.img__btn').addEventListener('click', function() {
-            document.querySelector('.cont').classList.toggle('s--signup');
-        });
-    </script>
-        
     </body>
 </html>
