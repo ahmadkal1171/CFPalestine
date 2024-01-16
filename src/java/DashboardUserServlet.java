@@ -43,10 +43,10 @@ public class DashboardUserServlet extends HttpServlet {
             if(!projectList.isEmpty()){
                 
                 request.setAttribute("projectList",projectList);
-                request.getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
+                request.getRequestDispatcher("/dashboardUser.jsp").forward(request, response);
             }
             else
-                request.getRequestDispatcher("/homeAdmin.jsp").forward(request, response);
+                request.getRequestDispatcher("/dashboardUser.jsp").forward(request, response);
         }
     }
 
