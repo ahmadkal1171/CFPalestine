@@ -89,38 +89,38 @@ public class ListAdminDao {
         return projList;
     }
     
-//    public String editCategory(CategoryBean categoryBean){
-//        
-//        String categoryId = categoryBean.getId();
-//        String categoryName = categoryBean.getCategoryName();
-//        float price = categoryBean.getPrice();
-//
-//        Connection con = null;
-//        Statement statement = null;
-//        String sql = "";
-//
-//        try {
-//            con = DBConnection.createConnection();
-//            statement = con.createStatement();
-//
-//            if (isExists(categoryName)) {
-//                return "CATEGORY ALREADY EXISTS";
-//            }
-//            
-//            sql = "update category set categoryname='"+categoryName+"',price="+price
-//                    + " where category_id="+categoryId;
-//            
-////            return sql;
-//            statement.executeUpdate(sql);
-//
-//            return "SUCCESS";
-//
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//        return "FAILED. PLEASE TRY AGAIN";
-//    }
-//    
+    public String editProject(ListFundAdmin lfa){
+        int id=lfa.getProjId();
+        String projName = lfa.getProjName();
+        String projDesc = lfa.getProjDesc();
+        String dateline = lfa.getDateline();
+
+        Connection con = null;
+        Statement statement = null;
+        String sql = "";
+
+        try {
+            con = DBConnection.createConnection();
+            statement = con.createStatement();
+
+            if (isExists(projName)) {
+                return "PROJECT ALREADY EXISTS";
+            }
+            
+            sql = "update Project set projectName='"+projName+"',projectDescription='"+projDesc+"',deadline='"+dateline
+                    + "' where projectid="+id;
+            
+//            return sql;
+            statement.executeUpdate(sql);
+
+            return "SUCCESS";
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return "FAILED. PLEASE TRY AGAIN";
+    }
+    
     public String addProject(ListFundAdmin listProj){
         
        
