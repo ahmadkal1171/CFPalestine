@@ -57,6 +57,7 @@
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
                         
+                        
                         <table class="table">
                             <thead>
                                 <tr>

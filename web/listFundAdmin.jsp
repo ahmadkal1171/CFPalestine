@@ -4,6 +4,7 @@
     Author     : Haikal
 --%>
 
+<%@page import="bean.AdminBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="bean.ListFundAdmin"%>
@@ -15,7 +16,7 @@
     <head>
       <meta charset="UTF-8" />
       <title>HOME</title>
-      <link rel="stylesheet" href="css/style3.css" />
+      <link rel="stylesheet" href="css/styleFund.css" />
       <!-- Font Awesome Cdn Link -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
@@ -57,61 +58,52 @@
       </nav>
     
     
-      <div id="projectCollection"">      
-        
-               
-        List of the project
-        <br><br>
-            <%
+             <section class="main">
+                <section class="fundL">
+                    <div class="fund-list">
+                        <center><h1>PROJECT</h1></center>
+                       <%
                 List categoryList = (List) request.getAttribute("projectList");
                 if (categoryList != null) {
                     Iterator categorys = categoryList.iterator();
                     while (categorys.hasNext()) {
                         ListFundAdmin category = (ListFundAdmin) categorys.next();       
             %>   
-                <form action="EditProjectServlet" method="POST">
-            <table border="0">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td>Project Name</td>
-                            <input type="hidden" name="projId" value="<%= category.getProjId() %>">
-                            <td><input type="text" name="projName" value="<%=category.getProjName()%>"/></td>
-                        </tr>
-                        <tr>
-                            <td>Project Description</td>
-                            <td><input type="text" name="projDesc" value="<%=category.getProjDesc()%>"/></td>
-                        </tr>
-                        <tr>
-                            <td>Dateline (YYYY-MM-DD)</td>
-                            <td><input type="text" name="dateline" value="<%=category.getDateline()%>"/></td>
-                        </tr>
-                        <tr>
-                            <td><input type="submit" value="Edit Project" /></td>
-                            <!--<td><input type="reset" value="Reset" /></td>-->
-                        </tr>
+                        
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><center>PROJECT ID</center></th>
+                                    <th><center>PROJECT NAME</center></th>
+                                    <th><center>PROJECT DESC</center></th>
+                                    <th><center>DATELINE</center></th>
+                                    <th><center>CUSTOMIZE</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <form action="EditProjectServlet" method="POST">
+                                <tr>
 
-                    </tbody>
-                </table>
-            </form>
-                
-                
-                <form action="DeleteProjectServlet" method="post">
-                    <input type="hidden" name="projId" value="<%= category.getProjId() %>">
-                    <input type="submit" value="Delete Project"><br><br>
-                </form>
-            <%
-                    }
-                }
-            %>
-         End list of the project  
-         <br><br>
-         <b>Add Project</b>
+                                    <td class="col-2"><center><input type="hidden" name="projId" value="<%= category.getProjId() %>"><%= category.getProjId() %></center></td>
+                                    <td class="col-2"><center><input type="text" name="projName" value="<%=category.getProjName()%>"/></center></td>
+                                    <td class="col-2"><center><input type="text" name="projDesc" value="<%=category.getProjDesc()%>"/></center></td>
+                                    <td class="col-2"><center><input type="text" name="dateline" value="<%=category.getDateline()%>"/></center></td>
+                                    <td class="col-2"><center><input type="submit" value="Edit Project" /></form>
+                                                <form action="DeleteProjectServlet" method="post">
+                                            <input type="hidden" name="projId" value="<%= category.getProjId() %>">
+                                            <input type="submit" value="Delete Project"><br><br>
+                                        </form>
+                                    </center></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <%
+                                }
+                            }
+                        %>
+                    </div>
+                </section>
+                                 <b>Add Project</b>
         <form action="AddProjectServlet" method="POST">
             <table border="0">
                 <thead>
@@ -141,7 +133,14 @@
                 </tbody>
             </table>
         </form>
-  
+
+                <!-- Site footer -->
+                <section class="footer">
+                    <footer>
+                        <p class="text-center">Copyright &copy; Crowd Funding</p>
+                    </footer>
+                </section>
+            </section>
+        </div>
     </body>
-    </html>
-    </span>
+</html>
