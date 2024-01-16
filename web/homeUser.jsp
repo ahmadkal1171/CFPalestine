@@ -131,7 +131,7 @@
           </div>
         </section>
     
-        <section class="parallax-section" style="background-position: 50% 120px;">
+<!--        <section class="parallax-section" style="background-position: 50% 120px;">
             <div class="projects">
               <div class="card">
                 <img src="images/5.png">
@@ -161,7 +161,7 @@
                   <button href="">See More</button>
                 </div>
             </div>
-          </section>
+        </section>-->
           
       <!-- Site footer -->
       <section class="footer">
