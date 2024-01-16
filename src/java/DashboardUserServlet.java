@@ -37,9 +37,6 @@ public class DashboardUserServlet extends HttpServlet {
             
             List projectList=lad.getAllProject();
             
-            
-//            out.print(projectList);
-//            return;
             if(!projectList.isEmpty()){
                 
                 request.setAttribute("projectList",projectList);

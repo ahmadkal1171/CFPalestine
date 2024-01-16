@@ -34,7 +34,7 @@ public class DashboardUserDao {
         try {
             con = DBConnection.createConnection();
             statement = con.createStatement();
-            resultSet = statement.executeQuery("Select * from app.donate");
+            resultSet = statement.executeQuery("SELECT * FROM DONATE JOIN FUNDERS");
 
             while (resultSet.next()){
                 funderidDB = resultSet.getString("funderid");
@@ -63,8 +63,8 @@ public class DashboardUserDao {
         Statement statement = null;
         ResultSet resultSet = null;
         String sql = "";
-        int projIdDB = 0;
-        int funderIdDB = 0;
+        String projIdDB = "";
+        String funderIdDB = "";
 //        LocalDate fundingDateDB = "YYYY-MM-DD";
         String fundernameDB = "";
         String fundingamountDB = "";
@@ -74,25 +74,36 @@ public class DashboardUserDao {
             con = DBConnection.createConnection();
             statement = con.createStatement();
 
-            sql = "SELECT * FROM DONATE";
+            sql = "SELECT * FROM DONATE JOIN FUNDERS";
 
             resultSet = statement.executeQuery(sql);
 
              while (resultSet.next()) {
-                funderIdDB = resultSet.getInt("funderid");
+                funderIdDB = resultSet.getString("funderid");
                 fundernameDB = resultSet.getString("fundername");
                 fundingamountDB = resultSet.getString("fundingamount");
                 fundingdateDB = resultSet.getString("fundingdate");
-                projIdDB = resultSet.getInt("projectId");
+                projIdDB = resultSet.getString("projectId");
                 
                 DashboardUserBean dub = new DashboardUserBean(funderIdDB, fundernameDB, fundingamountDB, fundingdateDB, projIdDB);
                 projList.add(dub);
-             }
+            }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
-        return projList;
+        finally {
+            // Close resources in reverse order of creation
+            try {
+                if (resultSet != null) resultSet.close();
+                if (statement != null) statement.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            return projList;
+        }
     }
 }
