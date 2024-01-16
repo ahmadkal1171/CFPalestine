@@ -10,59 +10,54 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.*"%>
 <!DOCTYPE html>
-<html>
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+    <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+      <meta charset="UTF-8" />
+      <title>HOME</title>
+      <link rel="stylesheet" href="css/style3.css" />
+      <!-- Font Awesome Cdn Link -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     </head>
     <body>
+      <div class="container">
         <nav>
-                    <ul>
-                      <li><form action="/action_page.php">
-                            <input type="text" placeholder=" Search.. " name="search">
-                            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a></form>
-                        </li>
-                        <li style="padding: 10px 5px;border-radius: 10px 10px;background-color:#515050;"><a style="color: #3366cc;" href="homeAdmin.jsp">Home</a></li>
-                        <li><a href="ListFundAdminServlet">Dashboard</a></li>
-                        <li><a href="ListFundAdminServlet">Customize Project</a></li> 
-                        <li><a href="AdminServlet">Profile</a></li>
-                        
-                        
-                        <!-- <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></li> -->
-                    </ul>
-                </nav>
-        <h1>Hello World!</h1>
-        <b>Add Project</b>
-        <form action="AddProjectServlet" method="POST">
-            <table border="0">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Project Name</td>
-                        <td><input type="text" name="projName" /></td>
-                    </tr>
-                    <tr>
-                        <td>Project Description</td>
-                        <td><input type="text" name="projDesc" /></td>
-                    </tr>
-                    <tr>
-                        <td>Dateline (YYYY-MM-DD)</td>
-                        <td><input type="text" name="dateline" /></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Add Project" /></td>
-                        <td><input type="reset" value="Reset" /></td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-        </form>
-        
+          <ul>
+              <li>
+                  <a href="#" class="logo">
+                      <img src="images/logo.png" style="height: 40%;">
+                      <span class="nav-item">Donators</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="homeAdmin.html">
+                      <i class="fas fa-home"></i>
+                      <span class="nav-item" >Home</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="ListFundAdminServlet">
+                      <i class="fas fa-database"></i>
+                      <span class="nav-item">Project</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="AdminServlet">
+                      <i class="fas fa-user"></i>
+                      <span class="nav-item">Profile</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="LogoutServlet" class="logout">
+                      <i class="fas fa-sign-out-alt"></i>
+                      <span class="nav-item">Log out</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+    
+    
+      <div id="projectCollection"">      
         
                
         List of the project
@@ -98,7 +93,7 @@
                         </tr>
                         <tr>
                             <td><input type="submit" value="Edit Project" /></td>
-                            <td><input type="reset" value="Reset" /></td>
+                            <!--<td><input type="reset" value="Reset" /></td>-->
                         </tr>
 
                     </tbody>
@@ -115,6 +110,38 @@
                 }
             %>
          End list of the project  
-                   
+         <br><br>
+         <b>Add Project</b>
+        <form action="AddProjectServlet" method="POST">
+            <table border="0">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Project Name</td>
+                        <td><input type="text" name="projName" /></td>
+                    </tr>
+                    <tr>
+                        <td>Project Description</td>
+                        <td><input type="text" name="projDesc" /></td>
+                    </tr>
+                    <tr>
+                        <td>Dateline (YYYY-MM-DD)</td>
+                        <td><input type="text" name="dateline" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Add Project" /></td>
+                        <td><input type="reset" value="Reset" /></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </form>
+  
     </body>
-</html>
+    </html>
+    </span>
