@@ -75,9 +75,13 @@
                         <table border="1" class="table">
                             <thead>
                                 <tr>
-                                    <th>Project ID</th>
+<!--                                    <th>Project ID</th>
                                     <th>Dateline</th>
+                                    <th>Title</th>-->
+                                    <th>User ID</th>
+                                    <th>Date</th>
                                     <th>Title</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                         <%
@@ -92,6 +96,11 @@
                                     <td><%=category.getProjId()%></td>
                                     <td><%=category.getDateline()%></td>
                                     <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
+                                    <td>
+                                        <button class="create-fund">
+                                            <a href="CreateFundServlet">See More</a>
+                                        </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         <%
