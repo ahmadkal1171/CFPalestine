@@ -55,7 +55,7 @@
                     <span class="m--in">Sign In</span>
                 </div>
             </div>
-<!--            <div class="form sign-up">
+            <div class="form sign-up">
                 <h2 align="center">Create your Account</h2>
                 <form action="RegisterServlet" method="POST">
                 <label>
@@ -87,7 +87,7 @@
                 <input type="reset" value="Reset"/>
                 
                 </form>
-            </div>-->
+            </div>
         </div>
       </div>   
     </body>
