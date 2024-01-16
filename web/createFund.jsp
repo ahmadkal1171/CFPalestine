@@ -4,7 +4,11 @@
     Author     : HP
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="bean.ListFundAdmin"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <span style="font-family: verdana, geneva, sans-serif;">
     <html>
@@ -62,10 +66,20 @@
                         <div class="create-fund">
                             <!-- <center><h1></h1></center> -->
                             <center><img src="images/aqsa.jpg" width="50%" height="50%"></center><br>
-                            <h2><b><center>Tabung Kecemasan: Merdeka Al Aqsa</center></b></h2><br>
+                            
+                            <%
+                                List categoryList = (List) request.getAttribute("projectList");
+                                if (categoryList != null) {
+                                    Iterator categorys = categoryList.iterator();
+                                    while (categorys.hasNext()) {
+                                        ListFundAdmin category = (ListFundAdmin) categorys.next();       
+                            %>   
+                        
+                            <h2><b><center><%=category.getProjName()%></center></b></h2><br>
                             <p>
-                                Tabung bagi membantu mangsa di dalam dan luar negara. Tabung semasa ini akan digunakan untuk membantu kos rawatan, pek makanan, kit kecemasan, roti dan lain-lain keperluan yang diperlukan.
-                                <br><br>KAMI CROWD FUNDER MALAYSIA MELANCARKAN TABUNG BANTUAN KEMANUSIAAN MERDEKA AQSA. DENGAN KERJASAMA TEAM CROWD FUNDER SEDANG MENGUMPULKAN SUMBER BANTUAN YANG DAPAT DIHANTAR KE SANA.
+<!--                                Tabung bagi membantu mangsa di dalam dan luar negara. Tabung semasa ini akan digunakan untuk membantu kos rawatan, pek makanan, kit kecemasan, roti dan lain-lain keperluan yang diperlukan.
+                                <br><br>KAMI CROWD FUNDER MALAYSIA MELANCARKAN TABUNG BANTUAN KEMANUSIAAN MERDEKA AQSA. DENGAN KERJASAMA TEAM CROWD FUNDER SEDANG MENGUMPULKAN SUMBER BANTUAN YANG DAPAT DIHANTAR KE SANA.-->
+                                <%=category.getProjDesc()%>
                             </p><br>
 
                             <center>
