@@ -7,21 +7,23 @@ package bean;
 public class DashboardUserBean implements java.io.Serializable{
     public String funderid;
     public String funderName;
-    public String amount;
-    public String deadline;
+    public String fundingamount;
+    public String fundingdate;
     public String projectid;
-    public String projectname;
 
     public DashboardUserBean() {
     }
 
-    public DashboardUserBean(String funderid, String funderName, String amount, String deadline, String projectid, String projectname) {
+    public DashboardUserBean(String funderid, String funderName, String fundingamount, String fundingdate, String projectid) {
         this.funderid = funderid;
         this.funderName = funderName;
-        this.amount = amount;
-        this.deadline = deadline;
+        this.fundingamount = fundingamount;
+        this.fundingdate = fundingdate;
         this.projectid = projectid;
-        this.projectname = projectname;
+    }
+
+    public DashboardUserBean(int funderIdDB, String fundernameDB, String fundingamountDB, String fundingdateDB, int projIdDB) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getFunderid() {
@@ -40,20 +42,20 @@ public class DashboardUserBean implements java.io.Serializable{
         this.funderName = funderName;
     }
 
-    public String getAmount() {
-        return amount;
+    public String getFundingamount() {
+        return fundingamount;
     }
 
-    public void setAmount(String amount) {
-        this.amount = amount;
+    public void setFundingamount(String fundingamount) {
+        this.fundingamount = fundingamount;
     }
 
-    public String getDeadline() {
-        return deadline;
+    public String getFundingdate() {
+        return fundingdate;
     }
 
-    public void setDeadline(String deadline) {
-        this.deadline = deadline;
+    public void setFundingdate(String fundingdate) {
+        this.fundingdate = fundingdate;
     }
 
     public String getProjectid() {
@@ -62,13 +64,5 @@ public class DashboardUserBean implements java.io.Serializable{
 
     public void setProjectid(String projectid) {
         this.projectid = projectid;
-    }
-
-    public String getProjectname() {
-        return projectname;
-    }
-
-    public void setProjectname(String projectname) {
-        this.projectname = projectname;
     }
 }
