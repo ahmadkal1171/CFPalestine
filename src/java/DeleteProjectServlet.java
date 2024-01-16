@@ -45,12 +45,12 @@ public class DeleteProjectServlet extends HttpServlet {
 
                 //login page
                 request.setAttribute("successMessage", "PROJECT HAS BEEN DELETE SUCCESSFULLY");
-                request.getRequestDispatcher("/listFundAdmin.jsp").forward(request, response);
+                request.getRequestDispatcher("/ListFundAdminServlet").forward(request, response);
             }
 
             //register fail
             request.setAttribute("errorMessage", execute);
-            request.getRequestDispatcher("/editList.jsp").forward(request, response);
+            request.getRequestDispatcher("/ListFundAdminServlet").forward(request, response);
         
         }
     }
