@@ -35,19 +35,13 @@
                 <li>
                     <a href="dashboardUser.jsp">
                         <i class="fas fa-database"></i>
-                        <span class="nav-item">About Us</span>
+                        <span class="nav-item">Dashboard</span>
                     </a>
                 </li>
-                <li>
+                <li> 
                     <a href="UserServlet">
                         <i class="fas fa-user"></i>
                         <span class="nav-item">Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="ListFundServlet">
-                        <i class="fas fa-list"></i>
-                        <span class="nav-item">List Fund</span>
                     </a>
                 </li>
                 <li>
