@@ -56,6 +56,10 @@
         <servlet-name>paymentServlet</servlet-name>
         <servlet-class>paymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashboardUserServlet</servlet-name>
+        <servlet-class>DashboardUserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>paymentServlet</servlet-name>
         <url-pattern>/paymentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardUserServlet</servlet-name>
+        <url-pattern>/DashboardUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
