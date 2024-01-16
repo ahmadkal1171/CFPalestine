@@ -5,7 +5,7 @@
 <%@page import="bean.ListFundAdmin"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.*"%>
-
+<%@page import="bean.UserBean"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,26 +63,47 @@
                 <div style="width: 1500px; border: 2px solid #ccc; padding: 64px; margin-top: 100px; margin-left: 100px">
                     <h3>Payment Confirmation</h3>
                     <section class="main">
-                        <form action="paymentServlet" method="post">
+                        <form action="CreateFundServlet" method="POST">
+                            <%
+                                        UserBean user = (UserBean) request.getAttribute("user");
+                                        
+                               %>
                             <label>
+                                
                                 <span>Your Name :</span>
-                                <input type="text" name="fundername" value=""><br>
+                                <input type="hidden" name="funderid" value="<%= user.getId()%>"><br>
+                                <input type="text" name="fundername" value="<%= user.getName() %>"><br>
                             </label>
                             <label>
                                 <span>Email Address :</span>
-                                <input type="text" name="funderemail" value=""><br>
+                                <input type="text" name="funderemail" value="<%= user.getEmail() %>"><br>
                             </label>
                             <label>
                                 <span>Enter Amount (RM):</span>
                                 <input type="text" name="amount" value="" required><br>
                             </label>
+                            <label>
+                                <span>Funding date :</span>
+                                <input type="text" name="date" value="" required><br>
+                            </label>
                             <label for="payment_method">
-                                 <span>Select Payment Method :</span>
-                            <select class="form-select" id="payment_method" name="payment_method">
-                                <option value="1">Cards</option>
-                                <option value="2">Online Banking</option>
-                                <option value="3">E-Wallet</option>
-                            </select>
+                                 <span>Project Name :</span>
+                                 <select name="projid">
+                                     
+                                    <%
+                List categoryList = (List) request.getAttribute("projectList");
+                if (categoryList != null) {
+                    Iterator categorys = categoryList.iterator();
+                    while (categorys.hasNext()) {
+                        ListFundAdmin category = (ListFundAdmin) categorys.next();       
+            %> 
+            
+            <option value="<%=category.getProjId()%>"><%=category.getProjName()%></option>
+                                    <%
+                                }
+                            }
+                        %>
+                                </select>
                                  </label><br>
                             <input type="submit" value="Continue to Pay" class="submit">
                         </form>

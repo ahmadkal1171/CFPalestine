@@ -4,10 +4,15 @@
  * and open the template in the editor.
  */
 
+import bean.ListFundAdmin;
 import bean.LoginAdmin;
+import bean.UserBean;
+import dao.ListAdminDao;
 import dao.LoginAdminDao;
+import dao.UserDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,16 +38,30 @@ public class paymentServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet paymentServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet paymentServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            HttpSession session = request.getSession(false);
+            int id = (int) session.getAttribute("userID");
+            
+            UserDao ud = new UserDao();
+            UserBean user = ud.profileUser(id);
+            ListAdminDao lad = new  ListAdminDao();
+            List projectList=lad.getAllProject();
+            
+//            out.println("User ID: " + user.getId());
+//            out.println("User Name: " + user.getName());
+//            out.println("User Email: " + user.getEmail());
+
+//            return;
+            if(user == null){
+                request.setAttribute("errorMessage", "INTERNAL PROBLEM");
+                request.getRequestDispatcher("/payment.jsp").forward(request, response);
+            }
+            request.setAttribute("projectList",projectList);
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("/payment.jsp").forward(request, response);
+            
         }
     }
 
@@ -74,28 +93,7 @@ public class paymentServlet extends HttpServlet {
             throws ServletException, IOException {
 //        processRequest(request, response);
 
-            try (PrintWriter out = response.getWriter()) {
             
-            /* TODO output your page here. You may use following sample code. */
-            String username=request.getParameter("username");
-            String password=request.getParameter("password");
-            
-            LoginAdmin lb=new LoginAdmin(username,password);
-            LoginAdminDao ld = new LoginAdminDao();
-            String userValidate=ld.authenticateUser(lb);
-            
-            if(userValidate.equals("SUCCESS")){
-                int userID = ld.getUserId();
-                HttpSession session = request.getSession();
-                session.setAttribute("funderID", userID);
-                request.setAttribute("funderemail",username);
-                request.getRequestDispatcher("homeUser.jsp").forward(request,response);
-            }
-            else{
-                request.setAttribute("errMsgs",userValidate);
-                request.getRequestDispatcher("payment.jsp").forward(request,response);
-            }
-        }
     }
 
     /**

@@ -118,7 +118,7 @@
                                     <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
                                     <td>
                                         <button class="create-fund">
-                                            <a href="payment.jsp">See More</a>
+                                            <a href="paymentServlet">See More</a>
                                         </button>
                                     </td>
                                 </tr>

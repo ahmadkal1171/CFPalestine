@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
+import bean.CreateBean;
 import bean.ListFundAdmin;
+import dao.CreateFundDao;
 import dao.ListAdminDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,24 +34,25 @@ public class CreateFundServlet extends HttpServlet {
             throws ServletException, IOException {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String projName=request.getParameter("projName");
-            String projDesc=request.getParameter("projDesc");
-            String dateline=request.getParameter("dateline");
+            String date=request.getParameter("date");
+            double amount=Double.parseDouble(request.getParameter("amount"));
+            int funderId=Integer.parseInt(request.getParameter("funderid"));
+            int projId=Integer.parseInt(request.getParameter("projid"));
             
-     
-            ListFundAdmin lfa = new ListFundAdmin(0,projName,dateline,projDesc);
-            ListAdminDao lad= new ListAdminDao();
+            CreateFundDao cfd =new CreateFundDao();
+            CreateBean cb = new CreateBean(amount,date,funderId,projId);
+            String ad = cfd.addFund(cb);
             
-            String addProj=lad.addProject(lfa);
-            if (addProj.equals("SUCCESS")) {
+//           out.print(ad);
+            if (ad.equals("SUCCESS")) {
                 //login page
                 request.setAttribute("successMessage", "PROJECT HAS BEEN ADD SUCCESSFULLY");
-                request.getRequestDispatcher("/createFund.jsp").forward(request, response);
+                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
             }
 
             //register fail
-            request.setAttribute("errorMessage", addProj);
-            request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
+            request.setAttribute("errorMessage", ad);
+            request.getRequestDispatcher("/paymentServlet").forward(request, response);
             
         }
     }

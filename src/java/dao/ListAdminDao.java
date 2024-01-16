@@ -19,6 +19,7 @@ import java.util.*;
  * @author Haikal
  */
 public class ListAdminDao {
+    int projectId;
     public ListFundAdmin getProjectById(int id){      
         Connection con = null;
         Statement statement = null;
@@ -200,7 +201,9 @@ public class ListAdminDao {
                 projNameDB = resultSet.getString("projectName");
 
                 if (projName.equals(projNameDB)) {
+                    
                     return true;
+                    
                 }
             }
 
@@ -209,4 +212,13 @@ public class ListAdminDao {
         }
         return false;
     }
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+    
 }
