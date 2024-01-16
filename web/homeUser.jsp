@@ -65,15 +65,19 @@
             <i class="fas fa-user-cog"></i>
           </div>-->
             <div class="home">
-                <% 
+                <%-- 
 //                    String funderusername = request.getParameter("funderusername");
                     out.println("<h1 align=center>"+"WELCOME TO CROWD FUNDING"+ "</h1>");
-                %>
+                --%>
         
               <!--<h1 class="box_verticalPaddedHalf">WELCOME TO CROWDFUNDER</h1>-->
               
               <section class="parallax-section1" style="background-position: 50% 120px;">
                 <div class="projects-img">
+                    <% 
+//                    String funderusername = request.getParameter("funderusername");
+                    out.println("<h1 align=center>"+"WELCOME TO CROWD FUNDING"+ "</h1>");
+                    %>
                   <!-- <div class="card">
                     <img src="images/1.png">
                   </div> -->

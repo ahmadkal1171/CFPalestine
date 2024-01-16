@@ -54,11 +54,6 @@
                 <section class="fundL">
                     <div class="fund-list">
                         <center><h1>USER PROFILE</h1></center>
-                        <button type = "button" class = "btn-warning btn-sm" title = "Edit Profile">
-                            <a href="editUserProfile.jsp">
-                                <i class = "fas fa-edit">Edit Profile</i> 
-                            </a>
-                        </button>
                         
                         <table class="table">
                             <thead>
