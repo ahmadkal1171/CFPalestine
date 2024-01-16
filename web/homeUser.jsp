@@ -15,7 +15,7 @@
     <html lang="en">
     <head>
       <meta charset="UTF-8" />
-      <title>Crowd Funding Dashboard </title>
+      <title>User - Home</title>
       <link rel="stylesheet" href="css/home.css" />
       <link rel="stylesheet" href="css/styleFund.css" />
       <!-- Font Awesome Cdn Link -->
