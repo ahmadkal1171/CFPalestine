@@ -12,7 +12,7 @@
     <meta charset="UTF-8" />
     <title>Crowd Funding Dashboard</title>
     <link rel="stylesheet" href="css/payment.css" />
-    <link rel="stylesheet" href="css/styleFund.css" />
+    <!--<link rel="stylesheet" href="css/styleFund.css" />-->
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
@@ -54,7 +54,7 @@
       </nav>
         <section class="main-top">
             <div class="home">
-                <div style="width: 1500px; border: 2px solid #ccc; padding: 64px; margin-top: 100px; margin-left: 100px">
+                <div style="width: 1500px; border: 5px solid #000; padding: 64px; margin-top: 100px; margin-left: 100px; background: #a2b1a2">
                     <h3>Payment Confirmation</h3>
                     <section class="main">
                         <form action="CreateFundServlet" method="POST">
@@ -65,24 +65,24 @@
                             <label>
                                 
                                 <span>Your Name :</span>
-                                <input type="hidden" name="funderid" value="<%= user.getId()%>"><br>
-                                <input type="text" name="fundername" value="<%= user.getName() %>"><br>
+                                <!--<input type="hidden" name="funderid" value="<%= user.getId()%>"><br>-->
+                                <input type="text" class="input" name="fundername" value="<%= user.getName() %>"><br>
                             </label>
                             <label>
                                 <span>Email Address :</span>
-                                <input type="text" name="funderemail" value="<%= user.getEmail() %>"><br>
+                                <input type="text" class="input" name="funderemail" value="<%= user.getEmail() %>"><br>
                             </label>
                             <label>
                                 <span>Enter Amount (RM):</span>
-                                <input type="text" name="amount" value="" required><br>
+                                <input type="text" name="amount" value=""  class=" input" required><br>
                             </label>
                             <label>
-                                <span>Funding date :</span>
-                                <input type="text" name="date" value="" required><br>
+                                <span>Date :</span>
+                                <input type="date" name="date" value="" class=" input" required><br>
                             </label>
                             <label for="payment_method">
                                  <span>Project Name :</span>
-                                 <select name="projid">
+                                 <select name="projid" class="input" >
                                      
                                     <%
                 List categoryList = (List) request.getAttribute("projectList");
@@ -99,15 +99,16 @@
                         %>
                                 </select>
                                  </label><br>
-                            <input type="submit" value="Continue to Pay" class="submit">
+                            <input type="submit" value="Pay" class="submit">
                         </form>
                     </section>
                 </div>
-                <footer>
+            </div>
+                <footer style="padding-top: 27%">
                     <p class="text-center">Copyright &copy; FundingHelp.com</p>
                 </footer>
-            </div>
         </section>
+                                
     </div>
 </body>
 </html>
