@@ -18,40 +18,40 @@
 </head>
 <body>
     <div class="container">
-        <nav>
-            <ul>
-                <li>
-                    <a class="logo">
-                        <img src="images/logo.png" alt="Logo" style="height: 40%;">
-                        <span class="nav-item">Donators</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="homeUser.jsp">
-                        <i class="fas fa-home"></i>
-                        <span class="nav-item">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="dashboardUser.jsp">
-                        <i class="fas fa-database"></i>
-                        <span class="nav-item">Dashboard</span>
-                    </a>
-                </li>
-                <li> 
-                    <a href="UserServlet">
-                        <i class="fas fa-user"></i>
-                        <span class="nav-item">Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="loginUser.jsp" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+   <nav>
+          <ul>
+              <li>
+                  <a class="logo">
+                      <img src="images/logo.png">
+                      <span class="nav-item">CF</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="ListFundServlet">
+                      <i class="fas fa-home"></i>
+                      <span class="nav-item">Home</span>
+                  </a>
+              </li>
+              <li>
+                    <a href="DashboardUserServlet">
+                      <i class="fas fa-database"></i>
+                      <span class="nav-item">Dashboard</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="UserServlet">
+                      <i class="fas fa-user"></i>
+                      <span class="nav-item">Profile</span>
+                  </a>
+              </li>
+              <li>
+                  <a href="loginUser.jsp" class="logout">
+                      <i class="fas fa-sign-out-alt"></i>
+                      <span class="nav-item">Log out</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
         <section class="main-top">
             <div class="home">
                 <div style="width: 1500px; border: 2px solid #ccc; padding: 64px; margin-top: 100px; margin-left: 100px">
@@ -111,3 +111,5 @@
     </div>
 </body>
 </html>
+
+

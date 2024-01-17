@@ -34,8 +34,8 @@
           <ul>
               <li>
                   <a class="logo">
-                      <img src="images/logo.png" style="height: 40%;">
-                      <span class="nav-item">Crowd<br>Funding</span>
+                      <img src="images/logo.png">
+                      <span class="nav-item">CF</span>
                   </a>
               </li>
               <li>
