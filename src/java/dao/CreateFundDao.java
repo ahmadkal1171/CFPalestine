@@ -31,16 +31,37 @@ public class CreateFundDao {
         Connection con = null;
         Statement statement = null;
         String sql = "";
+        PreparedStatement pstmtInsert = null;
+        ResultSet resultSet = null;
 
         try {
-            con = DBConnection.createConnection();
-            statement = con.createStatement();
+//            con = DBConnection.createConnection();
+//            statement = con.createStatement();
+//
+//            
+//            
+//            sql = "insert into Donate(FUNDINGAMOUNT,FUNDINGDATE,FUNDERID,PROJECTID) values("+amount+",'"+date+"',"+fundid+","+projid+")";
+//            
+//     
+            
+            
 
+        
+            con = DBConnection.createConnection(); // call from dbconnection class
+
+            // Check if username or email already exists
             
-            
-            sql = "insert into Donate(FUNDINGAMOUNT,FUNDINGDATE,FUNDERID,PROJECTID) values("+amount+",'"+date+"',"+fundid+","+projid+")";
-            
-     
+
+            // If not duplicate, proceed with insertion
+            pstmtInsert = con.prepareStatement("INSERT INTO Donate(FUNDINGAMOUNT,FUNDINGDATE,FUNDERID,PROJECTID) "
+                                             + "VALUES (?, ?, ?, ?)");
+            pstmtInsert.setDouble(1, amount);
+            pstmtInsert.setString(2, date);
+            pstmtInsert.setInt(3, fundid);
+            pstmtInsert.setInt(4, projid);
+
+            pstmtInsert.executeUpdate();
+            con.close();
             return "SUCCESS";
 
         } catch (SQLException ex) {

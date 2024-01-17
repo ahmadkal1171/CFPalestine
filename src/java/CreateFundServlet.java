@@ -47,7 +47,7 @@ public class CreateFundServlet extends HttpServlet {
             if (ad.equals("SUCCESS")) {
                 //login page
                 request.setAttribute("successMessage", "PROJECT HAS BEEN ADD SUCCESSFULLY");
-                request.getRequestDispatcher("/homeUser.jsp").forward(request, response);
+                request.getRequestDispatcher("/ListFundServlet").forward(request, response);
             }
 
             //register fail
