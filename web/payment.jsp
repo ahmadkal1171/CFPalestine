@@ -65,7 +65,7 @@
                             <label>
                                 
                                 <span>Your Name :</span>
-                                <!--<input type="hidden" name="funderid" value="<%= user.getId()%>"><br>-->
+                                <input type="hidden" name="funderid" value="<%= user.getId()%>"><br>
                                 <input type="text" class="input" name="fundername" value="<%= user.getName() %>"><br>
                             </label>
                             <label>
@@ -78,7 +78,7 @@
                             </label>
                             <label>
                                 <span>Date :</span>
-                                <input type="date" name="date" value="" class=" input" required><br>
+                                <input type="text" name="date" value="" class=" input" required><br>
                             </label>
                             <label for="payment_method">
                                  <span>Project Name :</span>
