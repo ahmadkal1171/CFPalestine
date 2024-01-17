@@ -60,7 +60,7 @@
                                 <tr>
                                     <th><center>Username</center></th>
                                     <th><center>User ID</center></th>            
-                                    <th><center>Email</center></th>
+                                    <th><center>Email Address</center></th>
                                     <th><center>Phone Number</center></th>
                                 </tr>
                             </thead>
