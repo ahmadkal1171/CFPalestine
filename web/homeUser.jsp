@@ -104,10 +104,9 @@
                         <table border="1" class="table">
                             <thead>
                                 <tr>
-                                    <th>Project ID</th>
-                                    <th>Date</th>
-                                    <th>Title</th>
-                                    <th></th>
+                                    <th>PROJECT ID</th>
+                                    <th>DATELINE</th>
+                                    <th>PROJECT NAME AND DESCRIPTION</th>
                                 </tr>
                             </thead>
                         <%
@@ -122,11 +121,6 @@
                                     <td><%=category.getProjId()%></td>
                                     <td><%=category.getDateline()%></td>
                                     <td><%=category.getProjName()%> - <%=category.getProjDesc()%></td>
-                                    <td>
-                                        <button class="create-fund">
-                                            <a href="paymentServlet">See More</a>
-                                        </button>
-                                    </td>
                                 </tr>
                             </tbody>
                         <%
@@ -134,6 +128,9 @@
                 }
             %>
                         </table>
+                        <center><button class="create-fund">
+                            <h1><a href="paymentServlet">DONATE NOW !!!</a></h1>
+                            </button></center>
                     </div>
                 </section>
                         

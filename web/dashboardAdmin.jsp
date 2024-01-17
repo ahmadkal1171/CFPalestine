@@ -1,82 +1,78 @@
-
-<%@page import="bean.DashboardUserBean"%>
 <%-- 
-    Document   : dashboard
-    Created on : Jan 16, 2024, 8:25:54 PM
-    Author     : HP
+    Document   : dashboardAdmin
+    Created on : Jan 17, 2024, 6:37:52 PM
+    Author     : Lenovo
 --%>
 
- 
-<%@page contentType="text/html" pageEncoding="UTF-8"%> 
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="java.util.Iterator"%>
-<%@page import="bean.ListFundAdmin"%>
-<%@page import="java.util.List"%>
+<%@page import="bean.DashboardUserBean"%>
 <%@page import="java.util.*"%>
-
-<!DOCTYPE html> 
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>User - Dashboard</title>
-    <link rel="stylesheet" href="css/home.css" />
-    <link rel="stylesheet" href="css/styleFund.css" />
-        <link rel="stylesheet" href="css/style3.css" />
-
-    <!-- Font Awesome Cdn Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-</head>
-
-<body>
-    <div class="container">
-      <nav>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+      <title>History</title>
+      <link rel="stylesheet" href="css/home.css" />
+      <link rel="stylesheet" href="css/styleFund.css" />
+      <!-- Font Awesome Cdn Link -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    </head>
+    <body>
+        <div class="container">
+        <nav>
           <ul>
               <li>
-                  <a class="logo">
+                  <a href="HomeAdminServlet" class="logo">
                       <img src="images/logo.png" style="height: 40%;">
-                      <span class="nav-item">Crowd<br>Funding</span>
+                      <span class="nav-item">Donators</span>
                   </a>
               </li>
               <li>
-                  <a href="ListFundServlet">
+                  <a href="HomeAdminServlet">
                       <i class="fas fa-home"></i>
-                      <span class="nav-item">Home</span>
+                      <span class="nav-item" >Home</span>
                   </a>
               </li>
+                    <li>
+                        <a href="DashboardAdminServlet">
+                            <i class="fas fa-list"></i>
+                            <span class="nav-item">Funder History</span>
+                        </a>
+                    </li>
               <li>
-                    <a href="DashboardUserServlet">
+                  <a href="ListFundAdminServlet">
                       <i class="fas fa-database"></i>
-                      <span class="nav-item">Dashboard</span>
+                      <span class="nav-item">Edit Project</span>
                   </a>
               </li>
               <li>
-                  <a href="UserServlet">
+                  <a href="AdminServlet">
                       <i class="fas fa-user"></i>
                       <span class="nav-item">Profile</span>
                   </a>
               </li>
               <li>
-                  <a href="loginUser.jsp" class="logout">
+                  <a href="LogoutServlet" class="logout">
                       <i class="fas fa-sign-out-alt"></i>
                       <span class="nav-item">Log out</span>
                   </a>
               </li>
           </ul>
       </nav>
-
-      <section class="main">
+        <section class="main">
             <section class="main">
         
             <section class="attendance">
               <div class="attendance-list">
-                  <h1><center>DASHBOARD</center></h1>
+                  <h1><center>HISTORY</center></h1>
                 <table class="table">
                   <thead>
                     <tr>
-                        <th><center>Name</center></th>
-                        <th><center>Date</center></th>              
-                        <th><center>Amount(RM)</center></th>
+                        <th><center>PROJECT ID</center></th>
+                        <th><center>FUNDER ID</center></th>
+                        <th><center>FUNDER NAME</center></th>
+                        <th><center>DATE</center></th>              
+                        <th><center>AMOUNT(RM)</center></th>
                     </tr>
                   </thead>
                   <%
@@ -88,6 +84,8 @@
                         %>   
                             <tbody>
                                 <tr>
+                                    <td><center><%=category.getProjectid()%></center></td>
+                                    <td><center><%=category.getFunderid()%></center></td>
                                     <td><center><%=category.getFunderName()%></center></td>
                                     <td><center><%=category.getFundingdate()%></center></td>
                                     <td><center><%=category.getFundingamount()%></center></td>
@@ -108,5 +106,5 @@
 
 
     </div>
-</body>
+    </body>
 </html>

@@ -37,6 +37,12 @@
                       <span class="nav-item" >Home</span>
                   </a>
               </li>
+                    <li>
+                        <a href="DashboardAdminServlet">
+                            <i class="fas fa-list"></i>
+                            <span class="nav-item">Funder History</span>
+                        </a>
+                    </li>
               <li>
                   <a href="ListFundAdminServlet">
                       <i class="fas fa-database"></i>
