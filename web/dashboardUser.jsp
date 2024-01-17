@@ -74,10 +74,10 @@
                 <table class="table">
                   <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Date</th>              
-                        <th style="text-align: center;">Amount (RM)</th>
+                        <th><center>ID</center></th>
+                        <th><center>Name</center></th>
+                        <th><center>Date</center></th>              
+                        <th><center>Amount(RM)</center></th>
                     </tr>
                   </thead>
                   <%
@@ -89,10 +89,10 @@
                         %>   
                             <tbody>
                                 <tr>
-                                    <td><%=category.getFunderid()%></td>
-                                    <td><%=category.getFunderName()%></td>
-                                    <td><%=category.getFundingdate()%></td>
-                                    <td><%=category.getFundingamount()%></td>
+                                    <td><center><%=category.getFunderid()%></center></td>
+                                    <td><center><%=category.getFunderName()%></center></td>
+                                    <td><center><%=category.getFundingdate()%></center></td>
+                                    <td><center><%=category.getFundingamount()%></center></td>
                                 </tr>
                             </tbody>
                         <%
