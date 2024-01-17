@@ -21,7 +21,7 @@
                 <ul>
                     <a href="ListFundServlet" class="logo">
                       <img src="images/logo.png" style="height: 40%;">
-                      <span class="nav-item">Donators</span>
+                      <span class="nav-item">CF</span>
                   </a>
                     <li>
                         <a href="ListFundServlet">
