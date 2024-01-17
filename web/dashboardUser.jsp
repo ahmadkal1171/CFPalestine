@@ -101,7 +101,7 @@
               </div>
             </section>
             </section>
-                          <footer>
+          <footer>
               <p class="text-center">Copyright &copy; FundingHelp.com</p>
           </footer>
             </section>
