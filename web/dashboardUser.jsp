@@ -102,13 +102,12 @@
                 </table>
               </div>
             </section>
-
-      <!-- Site footer -->
-      <section class="footer">
-          <footer>
+            </section>
+                          <footer>
               <p class="text-center">Copyright &copy; FundingHelp.com</p>
           </footer>
-      </section>
+            </section>
+
 
     </div>
 </body>

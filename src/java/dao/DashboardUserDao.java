@@ -34,7 +34,10 @@ public class DashboardUserDao {
         try {
             con = DBConnection.createConnection();
             statement = con.createStatement();
-            resultSet = statement.executeQuery("SELECT FUNDERID, FUNDERNAME, FUNDINGAMOUNT, FUNDINGDATE FROM DONATE JOIN FUNDERS");
+            resultSet = statement.executeQuery( "SELECT DONATE.FUNDERID, FUNDERS.FUNDERNAME, DONATE.FUNDINGAMOUNT, DONATE.FUNDINGDATE, DONATE.PROJECTID " +
+                                                "FROM DONATE " +
+                                                "JOIN FUNDERS ON DONATE.FUNDERID = FUNDERS.FUNDERID");
+
 
             while (resultSet.next()){
                 funderidDB = resultSet.getString("funderid");
@@ -74,7 +77,10 @@ public class DashboardUserDao {
             con = DBConnection.createConnection();
             statement = con.createStatement();
 
-            sql = "SELECT FUNDERID, FUNDERNAME, FUNDINGAMOUNT, FUNDINGDATE FROM DONATE JOIN FUNDERS";
+            sql = "SELECT DONATE.FUNDERID, FUNDERS.FUNDERNAME, DONATE.FUNDINGAMOUNT, DONATE.FUNDINGDATE, DONATE.PROJECTID " +
+                  "FROM DONATE " +
+                  "JOIN FUNDERS ON DONATE.FUNDERID = FUNDERS.FUNDERID";
+
 
             resultSet = statement.executeQuery(sql);
 
